@@ -6,23 +6,23 @@ provides-nominal:
 provides-member:
 - ["C12OraChallenge11AppDelegate", ""]
 provides-dynamic-lookup:
-- "application"
-- "applicationDidBecomeActive"
-- "applicationWillTerminate"
 - "window"
-- "applicationWillResignActive"
 - "applicationWillEnterForeground"
 - "applicationDidEnterBackground"
+- "application"
+- "applicationWillResignActive"
+- "applicationWillTerminate"
+- "applicationDidBecomeActive"
 depends-top-level:
+- "UIApplicationDelegate"
+- !private "BooleanLiteralType"
+- "Bool"
 - "AnyObject"
 - "NSObject"
-- !private "BooleanLiteralType"
+- "UIApplication"
 - "AppDelegate"
 - "UIWindow"
-- "Bool"
 - "UIResponder"
-- "UIApplicationDelegate"
-- "UIApplication"
 depends-member:
 - ["Ps9AnyObject", "application"]
 - ["Ps9AnyObject", "applicationDidBecomeActive"]

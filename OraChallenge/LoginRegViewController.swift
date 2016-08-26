@@ -7,3 +7,27 @@
 //
 
 import Foundation
+import UIKit
+
+class LoginRegViewController: UIViewController {
+    
+    
+    @IBOutlet var leftBarButtonItem: UIBarButtonItem!
+    @IBOutlet var rightBarButtonItem: UIBarButtonItem!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        
+    
+    }
+    
+    
+    
+    @IBAction func leftBarButtonPressed(sender: AnyObject) {
+    }
+
+    @IBAction func rightBarButtonPressed(sender: AnyObject) {
+    }
+}

@@ -122,7 +122,7 @@
         <!--OraChat-->
         <scene sceneID="z2q-Ff-EdP">
             <objects>
-                <viewController id="rhP-oZ-K9X" sceneMemberID="viewController">
+                <viewController id="rhP-oZ-K9X" customClass="LoginRegViewController" customModule="OraChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i95-ZN-nCt"/>
                         <viewControllerLayoutGuide type="bottom" id="0mT-Cn-kVu"/>
@@ -135,11 +135,21 @@
                     <navigationItem key="navigationItem" title="OraChat" id="baU-Eq-NK8">
                         <barButtonItem key="leftBarButtonItem" title="Register" id="sG1-0Q-etn">
                             <color key="tintColor" red="1" green="0.71821511729999998" blue="0.2392739445" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="leftBarButtonPressed:" destination="rhP-oZ-K9X" id="pkl-GE-7iC"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Login" id="7Xs-3L-TZF">
                             <color key="tintColor" red="1" green="0.71821511729999998" blue="0.2392739445" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="rightBarButtonPressed:" destination="rhP-oZ-K9X" id="TKf-wK-W8l"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="leftBarButtonItem" destination="sG1-0Q-etn" id="arj-SL-LQx"/>
+                        <outlet property="rightBarButtonItem" destination="7Xs-3L-TZF" id="x6u-qx-jcN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpH-PW-Bkg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

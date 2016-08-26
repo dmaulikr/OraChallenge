@@ -6,11 +6,11 @@ provides-nominal:
 provides-member:
 - ["C12OraChallenge20SecondViewController", ""]
 provides-dynamic-lookup:
-- "didReceiveMemoryWarning"
 - "viewDidLoad"
+- "didReceiveMemoryWarning"
 depends-top-level:
-- "SecondViewController"
 - "UIViewController"
+- "SecondViewController"
 depends-member:
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
 - ["Ps9AnyObject", "init"]
