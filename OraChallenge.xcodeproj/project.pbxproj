@@ -86,6 +86,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4062D9C1D700AF200A8747F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */,
+				B4E2D7E91D6FF10200E536C8 /* FirstViewController.swift */,
+				B4E2D7EB1D6FF10200E536C8 /* SecondViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		B4C2A1961D70045B00466BB9 /* Views and Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,11 +130,9 @@
 		B4E2D7E61D6FF10200E536C8 /* OraChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				B4062D9C1D700AF200A8747F /* Controllers */,
 				B4C2A1961D70045B00466BB9 /* Views and Controls */,
 				B4E2D7E71D6FF10200E536C8 /* AppDelegate.swift */,
-				B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */,
-				B4E2D7E91D6FF10200E536C8 /* FirstViewController.swift */,
-				B4E2D7EB1D6FF10200E536C8 /* SecondViewController.swift */,
 				B4E2D7ED1D6FF10200E536C8 /* Main.storyboard */,
 				B4E2D7F01D6FF10200E536C8 /* Assets.xcassets */,
 				B4E2D7F21D6FF10200E536C8 /* LaunchScreen.storyboard */,

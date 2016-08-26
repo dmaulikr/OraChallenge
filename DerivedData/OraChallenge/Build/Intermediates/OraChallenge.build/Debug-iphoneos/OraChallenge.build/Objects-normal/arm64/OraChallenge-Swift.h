@@ -129,13 +129,20 @@ SWIFT_CLASS("_TtC12OraChallenge19FirstViewController")
 SWIFT_CLASS("_TtC12OraChallenge10LoginCells")
 @interface LoginCells : UITableViewCell
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UITableView;
+@class LoginTableView;
+@class RegistrationTableView;
 @class UIBarButtonItem;
 
 SWIFT_CLASS("_TtC12OraChallenge22LoginRegViewController")
 @interface LoginRegViewController : UIViewController
+@property (nonatomic, strong) UITableView * _Null_unspecified presentedTableView;
+@property (nonatomic, strong) LoginTableView * _Null_unspecified loginTableV;
+@property (nonatomic, strong) RegistrationTableView * _Null_unspecified registrationTableV;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified leftBarButtonItem;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified rightBarButtonItem;
 - (void)viewDidLoad;
@@ -156,6 +163,7 @@ SWIFT_CLASS("_TtC12OraChallenge14LoginTableView")
 SWIFT_CLASS("_TtC12OraChallenge17RegistrationCells")
 @interface RegistrationCells : UITableViewCell
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
