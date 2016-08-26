@@ -99,9 +99,9 @@
 		B4C2A1961D70045B00466BB9 /* Views and Controls */ = {
 			isa = PBXGroup;
 			children = (
-				B4C2A1971D70063A00466BB9 /* RegistrationCells.swift */,
 				B4C2A19D1D70067700466BB9 /* LoginCells.swift */,
 				B4C2A1991D70064B00466BB9 /* LoginTableView.swift */,
+				B4C2A1971D70063A00466BB9 /* RegistrationCells.swift */,
 				B4C2A19B1D70065E00466BB9 /* RegistrationTableView.swift */,
 			);
 			name = "Views and Controls";

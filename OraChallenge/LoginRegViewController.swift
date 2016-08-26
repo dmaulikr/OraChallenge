@@ -30,7 +30,7 @@ class LoginRegViewController: UIViewController, UITableViewDataSource, UITableVi
         leftBarButtonItem.title = "Register"
 
         loginTableV = LoginTableView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height), style: .Plain)
-        loginCellsArray = loginTableV.
+//        loginCellsArray = loginTableV.
         registrationTableV = RegistrationTableView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height), style: .Plain)
         
         presentedTableView = loginTableV

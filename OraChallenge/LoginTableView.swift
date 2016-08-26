@@ -14,7 +14,6 @@ protocol LoginTableViewDelegate {
 }
 
 
-
 class LoginTableView: UITableView {
 
         var loginCellsArray = [LoginCells]()
@@ -27,7 +26,11 @@ class LoginTableView: UITableView {
         self.allowsSelection = false
         
         
-        let firstLoginCell = LoginCells(style: .Default, reuseIdentifier: "loginCell")
+        let firstLoginCell = LoginCells(style: .Default, reuseIdentifier: nil)
+        let secondLoginCell = LoginCells(style: .Default, reuseIdentifier: nil)
+        
+        firstLoginCell.label.text = "Email"
+        secondLoginCell.label.text = "Password"
     }
     
     required init?(coder aDecoder: NSCoder) {
