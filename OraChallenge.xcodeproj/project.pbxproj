@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4AD2A081D6FFA9C00829E1C /* LoginRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */; };
 		B4E2D7E81D6FF10200E536C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E2D7E71D6FF10200E536C8 /* AppDelegate.swift */; };
 		B4E2D7EA1D6FF10200E536C8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E2D7E91D6FF10200E536C8 /* FirstViewController.swift */; };
 		B4E2D7EC1D6FF10200E536C8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E2D7EB1D6FF10200E536C8 /* SecondViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegViewController.swift; sourceTree = "<group>"; };
 		B4E2D7E41D6FF10200E536C8 /* OraChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OraChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E2D7E71D6FF10200E536C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4E2D7E91D6FF10200E536C8 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				B4E2D7E71D6FF10200E536C8 /* AppDelegate.swift */,
+				B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */,
 				B4E2D7E91D6FF10200E536C8 /* FirstViewController.swift */,
 				B4E2D7EB1D6FF10200E536C8 /* SecondViewController.swift */,
 				B4E2D7ED1D6FF10200E536C8 /* Main.storyboard */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4E2D7EC1D6FF10200E536C8 /* SecondViewController.swift in Sources */,
+				B4AD2A081D6FFA9C00829E1C /* LoginRegViewController.swift in Sources */,
 				B4E2D7E81D6FF10200E536C8 /* AppDelegate.swift in Sources */,
 				B4E2D7EA1D6FF10200E536C8 /* FirstViewController.swift in Sources */,
 			);
@@ -486,6 +490,7 @@
 				B4E2D8101D6FF10200E536C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B4E2D8111D6FF10200E536C8 /* Build configuration list for PBXNativeTarget "OraChallengeTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +499,7 @@
 				B4E2D8131D6FF10200E536C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B4E2D8141D6FF10200E536C8 /* Build configuration list for PBXNativeTarget "OraChallengeUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +508,7 @@
 				B4E2D8161D6FF10200E536C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
