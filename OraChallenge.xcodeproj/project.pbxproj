@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4062DA31D73C7D200A8747F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4062DA21D73C7D200A8747F /* DataController.swift */; };
 		B4AD2A081D6FFA9C00829E1C /* LoginRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */; };
-		B4C2A1981D70063A00466BB9 /* RegistrationCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2A1971D70063A00466BB9 /* RegistrationCells.swift */; };
-		B4C2A19A1D70064B00466BB9 /* LoginTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2A1991D70064B00466BB9 /* LoginTableView.swift */; };
-		B4C2A19C1D70065E00466BB9 /* RegistrationTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2A19B1D70065E00466BB9 /* RegistrationTableView.swift */; };
+		B4C2A1981D70063A00466BB9 /* AccountNRegistrationCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2A1971D70063A00466BB9 /* AccountNRegistrationCells.swift */; };
 		B4C2A19E1D70067700466BB9 /* LoginCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2A19D1D70067700466BB9 /* LoginCells.swift */; };
 		B4E2D7E81D6FF10200E536C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E2D7E71D6FF10200E536C8 /* AppDelegate.swift */; };
 		B4E2D7EA1D6FF10200E536C8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E2D7E91D6FF10200E536C8 /* FirstViewController.swift */; };
@@ -40,10 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B4062DA21D73C7D200A8747F /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegViewController.swift; sourceTree = "<group>"; };
-		B4C2A1971D70063A00466BB9 /* RegistrationCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationCells.swift; sourceTree = "<group>"; };
-		B4C2A1991D70064B00466BB9 /* LoginTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTableView.swift; sourceTree = "<group>"; };
-		B4C2A19B1D70065E00466BB9 /* RegistrationTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTableView.swift; sourceTree = "<group>"; };
+		B4C2A1971D70063A00466BB9 /* AccountNRegistrationCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountNRegistrationCells.swift; sourceTree = "<group>"; };
 		B4C2A19D1D70067700466BB9 /* LoginCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCells.swift; sourceTree = "<group>"; };
 		B4E2D7E41D6FF10200E536C8 /* OraChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OraChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E2D7E71D6FF10200E536C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,13 +94,19 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		B4062DA11D73C7B200A8747F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B4062DA21D73C7D200A8747F /* DataController.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		B4C2A1961D70045B00466BB9 /* Views and Controls */ = {
 			isa = PBXGroup;
 			children = (
 				B4C2A19D1D70067700466BB9 /* LoginCells.swift */,
-				B4C2A1991D70064B00466BB9 /* LoginTableView.swift */,
-				B4C2A1971D70063A00466BB9 /* RegistrationCells.swift */,
-				B4C2A19B1D70065E00466BB9 /* RegistrationTableView.swift */,
+				B4C2A1971D70063A00466BB9 /* AccountNRegistrationCells.swift */,
 			);
 			name = "Views and Controls";
 			sourceTree = "<group>";
@@ -130,6 +134,7 @@
 		B4E2D7E61D6FF10200E536C8 /* OraChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				B4062DA11D73C7B200A8747F /* Models */,
 				B4062D9C1D700AF200A8747F /* Controllers */,
 				B4C2A1961D70045B00466BB9 /* Views and Controls */,
 				B4E2D7E71D6FF10200E536C8 /* AppDelegate.swift */,
@@ -290,11 +295,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4C2A1981D70063A00466BB9 /* RegistrationCells.swift in Sources */,
+				B4C2A1981D70063A00466BB9 /* AccountNRegistrationCells.swift in Sources */,
 				B4E2D7EC1D6FF10200E536C8 /* SecondViewController.swift in Sources */,
 				B4AD2A081D6FFA9C00829E1C /* LoginRegViewController.swift in Sources */,
-				B4C2A19A1D70064B00466BB9 /* LoginTableView.swift in Sources */,
-				B4C2A19C1D70065E00466BB9 /* RegistrationTableView.swift in Sources */,
+				B4062DA31D73C7D200A8747F /* DataController.swift in Sources */,
 				B4E2D7E81D6FF10200E536C8 /* AppDelegate.swift in Sources */,
 				B4E2D7EA1D6FF10200E536C8 /* FirstViewController.swift in Sources */,
 				B4C2A19E1D70067700466BB9 /* LoginCells.swift in Sources */,

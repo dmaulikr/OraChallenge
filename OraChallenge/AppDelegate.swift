@@ -12,10 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var dataController = DataController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if let navigationController = window?.rootViewController as? UINavigationController,
+            let loginRegViewController = navigationController.viewControllers.first as? LoginRegViewController {
+            
+            loginRegViewController.dataController = dataController
+        }
         return true
     }
 

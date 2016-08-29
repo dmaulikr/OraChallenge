@@ -9,19 +9,15 @@
 import Foundation
 import UIKit
 
-class LoginRegViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class LoginRegViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var presentedTableView: UITableView!
-    var loginTableV: LoginTableView!
-    var registrationTableV: RegistrationTableView!
+    var dataController: DataController?
+    
+    var tableView: UITableView!
+    var isShowingLoginTV: Bool!
     
     @IBOutlet var leftBarButtonItem: UIBarButtonItem!
     @IBOutlet var rightBarButtonItem: UIBarButtonItem!
-    
-    var loginCellsArray = [LoginCells]()
-    var registrationCellsArray = [RegistrationCells]()
-    
-    var isShowingLoginTV: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +25,15 @@ class LoginRegViewController: UIViewController, UITableViewDataSource, UITableVi
         isShowingLoginTV = true
         leftBarButtonItem.title = "Register"
 
-        loginTableV = LoginTableView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height), style: .Plain)
-//        loginCellsArray = loginTableV.
-        registrationTableV = RegistrationTableView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height), style: .Plain)
+        tableView = UITableView(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height), style: .Plain)
+        tableView.registerClass(LoginCells.self, forCellReuseIdentifier: "loginCellID")
+        tableView.registerClass(AccountNRegistrationCells.self, forCellReuseIdentifier: "accountNRegCellID")
+        tableView.scrollEnabled = false
+        tableView.allowsSelection = false
+        tableView.delegate = self
+        tableView.dataSource = self 
         
-        presentedTableView = loginTableV
-        presentedTableView.dataSource = self
-        presentedTableView.delegate = self
-        
-        self.view.addSubview(presentedTableView)
+        self.view.addSubview(tableView)
     }
     
     
@@ -47,31 +43,84 @@ class LoginRegViewController: UIViewController, UITableViewDataSource, UITableVi
         if isShowingLoginTV == true {
             
             isShowingLoginTV = false
-            presentedTableView.removeFromSuperview()
-            presentedTableView = registrationTableV
-            self.view.addSubview(presentedTableView)
+            
             leftBarButtonItem.title = "Login"
             rightBarButtonItem.title = "Register"
+            
+            tableView.reloadData()
             
         } else {
             
             isShowingLoginTV = true
-            presentedTableView.removeFromSuperview()
-            presentedTableView = loginTableV
-            self.view.addSubview(presentedTableView)
+            
             leftBarButtonItem.title = "Register"
             rightBarButtonItem.title = "Login"
+            
+            tableView.reloadData()
         }
     }
     
+    @IBAction func rightNavBarButtonPressed(sender: AnyObject) {
+        
+        if isShowingLoginTV == true {
+            
+            if dataController?.loginFieldsAreComplete() == true {
+                
+                if dataController?.emailIsValid == true {
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    if let tabBarVC = storyboard.instantiateViewControllerWithIdentifier("tabBarCont") as? UITabBarController {
+                        presentViewController(tabBarVC, animated: true, completion: nil)
+                    }
+                    print("check against API and segue to main chat view controller")
 
-    @IBAction func rightBarButtonPressed(sender: AnyObject) {
-        
-        
+                } else {
+                    
+                    showIncompleteAlert("Please make sure you've entered the email address correctly", message: "")
+                }
+                
+            } else {
+                
+                showIncompleteAlert("Please compete all fields before attempting to Log In", message: "")
+            }
+            
+        } else {
+            
+            if dataController?.registrationFieldsAreComplete() == true {
+                
+                if dataController?.emailIsValid == true {
+                    
+                    if dataController?.passwordsMatch() == true {
+                        
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        if let tabBarVC = storyboard.instantiateViewControllerWithIdentifier("tabBarCont") as? UITabBarController {
+                            presentViewController(tabBarVC, animated: true, completion: nil)
+                        }
+                        print("check against API and segue to main chat view controller")
+                        
+                    } else {
+                        
+                        showIncompleteAlert("Please make sure the passwords are matching and try to Register again", message: "")
+                    }
+                    
+                } else {
+                    
+                    showIncompleteAlert("Please make sure you've entered the email address correctly", message: "")
+                }
+                
+            } else {
+                
+                showIncompleteAlert("Please compete all fields before attempting to Register", message: "")
+            }
+        }
     }
     
     
-    //MARK: UITableView methods
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return 1
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if isShowingLoginTV == true {
@@ -87,18 +136,36 @@ class LoginRegViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        let accountNRegistrationCells = AccountNRegistrationCells(style: .Default, reuseIdentifier: "accountNRegCellID")
+        accountNRegistrationCells.dataController = dataController
+        
+        let loginCell = LoginCells(style: .Default, reuseIdentifier: "loginCellID")
+        loginCell.dataController = dataController   
+
         if isShowingLoginTV == true {
             
-            return 2
+            loginCell.cellIndexPathRow = indexPath.row
+            return loginCell
             
         } else {
             
-            return 4
+            accountNRegistrationCells.cellIndexPathRow = indexPath.row
+            return accountNRegistrationCells
         }
     }
+
     
-    
-    
-    
-    
+    func showIncompleteAlert(title:String, message:String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action:UIAlertAction!) in
+            
+            alert.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        
+        presentViewController(alert, animated: true, completion: nil)
+    }
+
+
 }

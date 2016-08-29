@@ -93,11 +93,28 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 #endif
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
-@import CoreGraphics;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
+@class UITextField;
+@class NSCoder;
+
+SWIFT_CLASS("_TtC12OraChallenge25AccountNRegistrationCells")
+@interface AccountNRegistrationCells : UITableViewCell <UITextFieldDelegate>
+@property (nonatomic, copy) NSString * _Nonnull namePlaceholderString;
+@property (nonatomic, copy) NSString * _Nonnull emailPlaceholderString;
+@property (nonatomic, copy) NSString * _Nonnull passwordPlaceHolderString;
+@property (nonatomic, copy) NSString * _Nonnull confirmPasswordPlaceHolderString;
+@property (nonatomic, strong) UITextField * _Nonnull textField;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
+- (void)textFieldDidBeginEditing:(UITextField * _Nonnull)textField;
+- (void)textFieldDidEndEditing:(UITextField * _Nonnull)textField;
+- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIWindow;
 @class UIApplication;
 @class NSObject;
@@ -115,7 +132,6 @@ SWIFT_CLASS("_TtC12OraChallenge11AppDelegate")
 @end
 
 @class NSBundle;
-@class NSCoder;
 
 SWIFT_CLASS("_TtC12OraChallenge19FirstViewController")
 @interface FirstViewController : UIViewController
@@ -125,52 +141,39 @@ SWIFT_CLASS("_TtC12OraChallenge19FirstViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UILabel;
 
 SWIFT_CLASS("_TtC12OraChallenge10LoginCells")
-@interface LoginCells : UITableViewCell
+@interface LoginCells : UITableViewCell <UITextFieldDelegate>
+@property (nonatomic, strong) UILabel * _Nonnull label;
+@property (nonatomic, strong) UITextField * _Nonnull textField;
+@property (nonatomic, copy) NSString * _Nonnull emailPlaceholderString;
+@property (nonatomic, copy) NSString * _Nonnull passwordPlaceHolderString;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
 - (void)layoutSubviews;
+- (void)textFieldDidBeginEditing:(UITextField * _Nonnull)textField;
+- (void)textFieldDidEndEditing:(UITextField * _Nonnull)textField;
+- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UITableView;
-@class LoginTableView;
-@class RegistrationTableView;
 @class UIBarButtonItem;
+@class NSIndexPath;
 
 SWIFT_CLASS("_TtC12OraChallenge22LoginRegViewController")
-@interface LoginRegViewController : UIViewController
-@property (nonatomic, strong) UITableView * _Null_unspecified presentedTableView;
-@property (nonatomic, strong) LoginTableView * _Null_unspecified loginTableV;
-@property (nonatomic, strong) RegistrationTableView * _Null_unspecified registrationTableV;
+@interface LoginRegViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) UITableView * _Null_unspecified tableView;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified leftBarButtonItem;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified rightBarButtonItem;
 - (void)viewDidLoad;
 - (IBAction)leftBarButtonPressed:(id _Nonnull)sender;
-- (IBAction)rightBarButtonPressed:(id _Nonnull)sender;
+- (IBAction)rightNavBarButtonPressed:(id _Nonnull)sender;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)showIncompleteAlert:(NSString * _Nonnull)title message:(NSString * _Nonnull)message;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC12OraChallenge14LoginTableView")
-@interface LoginTableView : UITableView
-- (nonnull instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC12OraChallenge17RegistrationCells")
-@interface RegistrationCells : UITableViewCell
-- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
-- (void)layoutSubviews;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC12OraChallenge21RegistrationTableView")
-@interface RegistrationTableView : UITableView
-- (nonnull instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 

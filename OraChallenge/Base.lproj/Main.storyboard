@@ -142,7 +142,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Login" id="7Xs-3L-TZF">
                             <color key="tintColor" red="1" green="0.71821511729999998" blue="0.2392739445" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="rightBarButtonPressed:" destination="rhP-oZ-K9X" id="TKf-wK-W8l"/>
+                                <action selector="rightNavBarButtonPressed:" destination="rhP-oZ-K9X" id="wbz-YF-F2d"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
