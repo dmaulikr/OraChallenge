@@ -166,6 +166,8 @@ SWIFT_CLASS("_TtC12OraChallenge22LoginRegViewController")
 @property (nonatomic, strong) UITableView * _Null_unspecified tableView;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified leftBarButtonItem;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified rightBarButtonItem;
+@property (nonatomic, copy) NSArray<LoginCells *> * _Nonnull loginCellsArray;
+@property (nonatomic, copy) NSArray<AccountNRegistrationCells *> * _Nonnull accountNRegCellsArray;
 - (void)viewDidLoad;
 - (IBAction)leftBarButtonPressed:(id _Nonnull)sender;
 - (IBAction)rightNavBarButtonPressed:(id _Nonnull)sender;

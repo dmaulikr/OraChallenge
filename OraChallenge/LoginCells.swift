@@ -58,6 +58,7 @@ class LoginCells: UITableViewCell, UITextFieldDelegate{
             
             label.text = "Email"
             textField.placeholder = emailPlaceholderString
+            textField.keyboardType = .EmailAddress
             
         } else {
             

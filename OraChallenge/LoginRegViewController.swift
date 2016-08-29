@@ -19,6 +19,9 @@ class LoginRegViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var leftBarButtonItem: UIBarButtonItem!
     @IBOutlet var rightBarButtonItem: UIBarButtonItem!
     
+    var loginCellsArray = [LoginCells]()
+    var accountNRegCellsArray = [AccountNRegistrationCells]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,12 +65,29 @@ class LoginRegViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func rightNavBarButtonPressed(sender: AnyObject) {
         
+        for loginCell in loginCellsArray {
+            
+            if loginCell.textField.isFirstResponder() {
+                
+                loginCell.textField.endEditing(true)
+            }
+        }
+        
+        for accountNRegCell in accountNRegCellsArray {
+            
+            if accountNRegCell.textField.isFirstResponder() {
+                
+                accountNRegCell.textField.endEditing(true)
+            }
+        }
+        
         if isShowingLoginTV == true {
             
             if dataController?.loginFieldsAreComplete() == true {
                 
                 if dataController?.emailIsValid == true {
                     
+                    dataController?.tryToLoginWithCredentials()
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     if let tabBarVC = storyboard.instantiateViewControllerWithIdentifier("tabBarCont") as? UITabBarController {
                         presentViewController(tabBarVC, animated: true, completion: nil)
@@ -92,6 +112,7 @@ class LoginRegViewController: UIViewController, UITableViewDelegate, UITableView
                     
                     if dataController?.passwordsMatch() == true {
                         
+                        dataController!.registerNewUser()
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         if let tabBarVC = storyboard.instantiateViewControllerWithIdentifier("tabBarCont") as? UITabBarController {
                             presentViewController(tabBarVC, animated: true, completion: nil)
@@ -145,11 +166,13 @@ class LoginRegViewController: UIViewController, UITableViewDelegate, UITableView
         if isShowingLoginTV == true {
             
             loginCell.cellIndexPathRow = indexPath.row
+            loginCellsArray.append(loginCell)
             return loginCell
             
         } else {
             
             accountNRegistrationCells.cellIndexPathRow = indexPath.row
+            accountNRegCellsArray.append(accountNRegistrationCells)
             return accountNRegistrationCells
         }
     }

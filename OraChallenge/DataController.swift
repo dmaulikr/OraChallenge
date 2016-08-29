@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 class DataController {
 
@@ -17,6 +16,8 @@ class DataController {
     var confirmPassword: String!
     
     var emailIsValid: Bool!
+    
+    var networkConnectController: NetworkConnectController?
     
     func loginTextFieldUpdated(textField: String, updatedText: String) {
         
@@ -53,6 +54,12 @@ class DataController {
             
             return false
         }
+    }
+    
+    
+    func tryToLoginWithCredentials() {
+        
+        networkConnectController?.loginUser(email!, password: password)
     }
     
     
@@ -133,6 +140,12 @@ class DataController {
         } else {
             return false
         }
+    }
+    
+    
+    func registerNewUser() {
+        
+        networkConnectController!.registerNewUser(name, email: email!, password: password, confirm: confirmPassword)
     }
     
     

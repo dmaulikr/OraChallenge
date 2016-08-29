@@ -6,28 +6,30 @@ provides-nominal:
 provides-member:
 - ["C12OraChallenge11AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationDidEnterBackground"
 - "applicationWillEnterForeground"
-- "window"
+- "applicationDidEnterBackground"
 - "applicationDidBecomeActive"
-- "application"
+- "window"
 - "applicationWillTerminate"
+- "application"
 - "applicationWillResignActive"
 depends-top-level:
-- "DataController"
-- "UIApplicationDelegate"
-- "AnyObject"
 - "AppDelegate"
-- "UIApplication"
-- !private "UINavigationController"
+- "NetworkConnectController"
 - !private "LoginRegViewController"
-- "UIResponder"
 - "Bool"
-- "UIWindow"
-- !private "BooleanLiteralType"
+- "AnyObject"
+- !private "UINavigationController"
+- "UIResponder"
 - "NSObject"
+- "UIApplication"
+- !private "BooleanLiteralType"
+- "UIApplicationDelegate"
+- "DataController"
+- "UIWindow"
 depends-member:
 - ["Ps9AnyObject", "DataController"]
+- ["Ps9AnyObject", "NetworkConnectController"]
 - ["Ps9AnyObject", "application"]
 - ["Ps9AnyObject", "applicationDidBecomeActive"]
 - ["Ps9AnyObject", "applicationDidEnterBackground"]
@@ -42,6 +44,7 @@ depends-member:
 - ["Ps9AnyObject", "applicationWillTerminate"]
 - ["Ps9AnyObject", "dataController"]
 - ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "networkConnectController"]
 - !private ["Ps9AnyObject", "rootViewController"]
 - !private ["Ps9AnyObject", "viewControllers"]
 - ["Ps9AnyObject", "window"]
@@ -51,6 +54,7 @@ depends-member:
 - ["C12OraChallenge11AppDelegate", "DataController"]
 - !private ["C12OraChallenge11AppDelegate", "LoginRegViewController"]
 - ["C12OraChallenge11AppDelegate", "NSObject"]
+- ["C12OraChallenge11AppDelegate", "NetworkConnectController"]
 - ["C12OraChallenge11AppDelegate", "UIApplication"]
 - !private ["C12OraChallenge11AppDelegate", "UINavigationController"]
 - ["C12OraChallenge11AppDelegate", "UIWindow"]
@@ -69,6 +73,7 @@ depends-member:
 - ["C12OraChallenge11AppDelegate", "dataController"]
 - ["C12OraChallenge11AppDelegate", "deinit"]
 - ["C12OraChallenge11AppDelegate", "init"]
+- ["C12OraChallenge11AppDelegate", "networkConnectController"]
 - ["C12OraChallenge11AppDelegate", "window"]
 - !private ["Sa", "Generator"]
 - !private ["Sa", "Index"]
@@ -89,6 +94,7 @@ depends-member:
 - ["Ps11CVarArgType", "DataController"]
 - !private ["Ps11CVarArgType", "Distance"]
 - !private ["Ps11CVarArgType", "IntegerLiteralType"]
+- ["Ps11CVarArgType", "NetworkConnectController"]
 - ["Ps11CVarArgType", "application"]
 - ["Ps11CVarArgType", "applicationDidBecomeActive"]
 - ["Ps11CVarArgType", "applicationDidEnterBackground"]
@@ -103,6 +109,7 @@ depends-member:
 - ["Ps11CVarArgType", "applicationWillTerminate"]
 - ["Ps11CVarArgType", "dataController"]
 - ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "networkConnectController"]
 - !private ["Ps11CVarArgType", "rootViewController"]
 - !private ["Ps11CVarArgType", "viewControllers"]
 - ["Ps11CVarArgType", "window"]
@@ -117,6 +124,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "DataController"]
 - !private ["Ps28CustomDebugStringConvertible", "Generator"]
 - !private ["Ps28CustomDebugStringConvertible", "Index"]
+- ["Ps28CustomDebugStringConvertible", "NetworkConnectController"]
 - ["Ps28CustomDebugStringConvertible", "Some"]
 - !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
@@ -135,6 +143,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "dataController"]
 - !private ["Ps28CustomDebugStringConvertible", "first"]
 - ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "networkConnectController"]
 - !private ["Ps28CustomDebugStringConvertible", "rootViewController"]
 - !private ["Ps28CustomDebugStringConvertible", "viewControllers"]
 - ["Ps28CustomDebugStringConvertible", "window"]
@@ -144,6 +153,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Generator"]
 - !private ["Ps23CustomStringConvertible", "Index"]
 - !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
+- ["Ps23CustomStringConvertible", "NetworkConnectController"]
 - !private ["Ps23CustomStringConvertible", "SubSequence"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
 - ["Ps23CustomStringConvertible", "application"]
@@ -161,14 +171,17 @@ depends-member:
 - ["Ps23CustomStringConvertible", "dataController"]
 - !private ["Ps23CustomStringConvertible", "first"]
 - ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "networkConnectController"]
 - !private ["Ps23CustomStringConvertible", "rootViewController"]
 - !private ["Ps23CustomStringConvertible", "viewControllers"]
 - ["Ps23CustomStringConvertible", "window"]
 - ["Ps23CustomStringConvertible", ""]
 - ["C12OraChallenge14DataController", "init"]
+- !private ["C12OraChallenge14DataController", "networkConnectController"]
 - ["Ps9Equatable", "DataController"]
 - !private ["Ps9Equatable", "Distance"]
 - !private ["Ps9Equatable", "IntegerLiteralType"]
+- ["Ps9Equatable", "NetworkConnectController"]
 - ["Ps9Equatable", "application"]
 - ["Ps9Equatable", "applicationDidBecomeActive"]
 - ["Ps9Equatable", "applicationDidEnterBackground"]
@@ -183,6 +196,7 @@ depends-member:
 - ["Ps9Equatable", "applicationWillTerminate"]
 - ["Ps9Equatable", "dataController"]
 - ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "networkConnectController"]
 - !private ["Ps9Equatable", "rootViewController"]
 - !private ["Ps9Equatable", "viewControllers"]
 - ["Ps9Equatable", "window"]
@@ -193,6 +207,7 @@ depends-member:
 - ["Ps8Hashable", "DataController"]
 - !private ["Ps8Hashable", "Distance"]
 - !private ["Ps8Hashable", "IntegerLiteralType"]
+- ["Ps8Hashable", "NetworkConnectController"]
 - ["Ps8Hashable", "application"]
 - ["Ps8Hashable", "applicationDidBecomeActive"]
 - ["Ps8Hashable", "applicationDidEnterBackground"]
@@ -207,6 +222,7 @@ depends-member:
 - ["Ps8Hashable", "applicationWillTerminate"]
 - ["Ps8Hashable", "dataController"]
 - ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "networkConnectController"]
 - !private ["Ps8Hashable", "rootViewController"]
 - !private ["Ps8Hashable", "viewControllers"]
 - ["Ps8Hashable", "window"]
@@ -253,6 +269,7 @@ depends-member:
 - ["CSo8NSObject", "DataController"]
 - !private ["CSo8NSObject", "LoginRegViewController"]
 - ["CSo8NSObject", "NSObject"]
+- ["CSo8NSObject", "NetworkConnectController"]
 - ["CSo8NSObject", "UIApplication"]
 - !private ["CSo8NSObject", "UINavigationController"]
 - ["CSo8NSObject", "UIWindow"]
@@ -270,10 +287,12 @@ depends-member:
 - ["CSo8NSObject", "applicationWillTerminate"]
 - ["CSo8NSObject", "dataController"]
 - ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "networkConnectController"]
 - !private ["CSo8NSObject", "rootViewController"]
 - !private ["CSo8NSObject", "viewControllers"]
 - ["CSo8NSObject", "window"]
 - ["PSo16NSObjectProtocol", "DataController"]
+- ["PSo16NSObjectProtocol", "NetworkConnectController"]
 - ["PSo16NSObjectProtocol", "application"]
 - ["PSo16NSObjectProtocol", "applicationDidBecomeActive"]
 - ["PSo16NSObjectProtocol", "applicationDidEnterBackground"]
@@ -288,10 +307,12 @@ depends-member:
 - ["PSo16NSObjectProtocol", "applicationWillTerminate"]
 - ["PSo16NSObjectProtocol", "dataController"]
 - ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "networkConnectController"]
 - !private ["PSo16NSObjectProtocol", "rootViewController"]
 - !private ["PSo16NSObjectProtocol", "viewControllers"]
 - ["PSo16NSObjectProtocol", "window"]
 - ["PSo16NSObjectProtocol", ""]
+- ["C12OraChallenge24NetworkConnectController", "init"]
 - ["Ps21NilLiteralConvertible", "Some"]
 - ["Sq", "Some"]
 - !private ["Sq", "deinit"]
@@ -320,6 +341,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "rootViewController"]
 - !private ["PSo21UIAppearanceContainer", "viewControllers"]
 - ["PSo21UIApplicationDelegate", "DataController"]
+- ["PSo21UIApplicationDelegate", "NetworkConnectController"]
 - ["PSo21UIApplicationDelegate", "application"]
 - ["PSo21UIApplicationDelegate", "applicationDidBecomeActive"]
 - ["PSo21UIApplicationDelegate", "applicationDidEnterBackground"]
@@ -333,6 +355,7 @@ depends-member:
 - ["PSo21UIApplicationDelegate", "applicationWillResignActive"]
 - ["PSo21UIApplicationDelegate", "applicationWillTerminate"]
 - !private ["PSo21UIApplicationDelegate", "dataController"]
+- !private ["PSo21UIApplicationDelegate", "networkConnectController"]
 - ["PSo21UIApplicationDelegate", "window"]
 - ["PSo21UIApplicationDelegate", ""]
 - !private ["PSo18UIContentContainer", "dataController"]
@@ -348,6 +371,7 @@ depends-member:
 - ["CSo11UIResponder", "DataController"]
 - !private ["CSo11UIResponder", "LoginRegViewController"]
 - ["CSo11UIResponder", "NSObject"]
+- ["CSo11UIResponder", "NetworkConnectController"]
 - ["CSo11UIResponder", "UIApplication"]
 - !private ["CSo11UIResponder", "UINavigationController"]
 - ["CSo11UIResponder", "UIWindow"]
@@ -365,6 +389,7 @@ depends-member:
 - ["CSo11UIResponder", "applicationWillTerminate"]
 - ["CSo11UIResponder", "dataController"]
 - ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "networkConnectController"]
 - !private ["CSo11UIResponder", "rootViewController"]
 - !private ["CSo11UIResponder", "viewControllers"]
 - ["CSo11UIResponder", "window"]
@@ -452,6 +477,7 @@ depends-nominal:
 - !private "PSo26NSExtensionRequestHandling"
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
+- "C12OraChallenge24NetworkConnectController"
 - "Ps21NilLiteralConvertible"
 - "Sq"
 - !private "Ps21RandomAccessIndexType"
@@ -498,4 +524,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
-interface-hash: "bdcbbd8dde5976a03df5f862df1ea81f"
+interface-hash: "6895369ec5db879c2f102e5e50caf346"

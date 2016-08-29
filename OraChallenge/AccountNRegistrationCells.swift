@@ -51,6 +51,7 @@ class AccountNRegistrationCells: UITableViewCell, UITextFieldDelegate {
         } else if cellIndexPathRow == 1 {
             
             textField.text = emailPlaceholderString
+            textField.keyboardType = .EmailAddress
             
         } else if cellIndexPathRow == 2 {
             
@@ -76,10 +77,12 @@ class AccountNRegistrationCells: UITableViewCell, UITextFieldDelegate {
         } else if cellIndexPathRow == 2 && textField.text == passwordPlaceHolderString {
             
             textField.text = ""
+            textField.secureTextEntry = true
             
         } else if cellIndexPathRow == 3 && textField.text == confirmPasswordPlaceHolderString {
             
             textField.text = ""
+            textField.secureTextEntry = true
         }
     }
     
@@ -104,6 +107,7 @@ class AccountNRegistrationCells: UITableViewCell, UITextFieldDelegate {
             
         }else if cellIndexPathRow == 2 && textField.text == "" {
             
+            textField.secureTextEntry = false
             textField.placeholder = passwordPlaceHolderString
             
         } else if cellIndexPathRow == 2 && textField.text != "" {
@@ -112,6 +116,7 @@ class AccountNRegistrationCells: UITableViewCell, UITextFieldDelegate {
             
         }else if cellIndexPathRow == 3 && textField.text == "" {
             
+            textField.secureTextEntry = false
             textField.placeholder = passwordPlaceHolderString
             
         } else if cellIndexPathRow == 3 && textField.text != "" {

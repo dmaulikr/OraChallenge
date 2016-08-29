@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var dataController = DataController()
+    var networkConnectController = NetworkConnectController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let loginRegViewController = navigationController.viewControllers.first as? LoginRegViewController {
             
             loginRegViewController.dataController = dataController
+            loginRegViewController.dataController!.networkConnectController = networkConnectController
         }
         return true
     }
