@@ -91,7 +91,8 @@ class LoginRegViewController: UIViewController, UITableViewDelegate, UITableView
                           
                     self.dataController?.tryToLoginWithCredentials()
                    
-                    self.networkConnectController?.getAllUsersChat("q", page: "page", limit: 20, completion: { (chatsArray) in
+                    self.dataController!.getInitialChats("q", completion: {
+                        (resultsReturned) in
                         
                         dispatch_async(dispatch_get_main_queue()) {
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -99,10 +100,11 @@ class LoginRegViewController: UIViewController, UITableViewDelegate, UITableView
                                 
                                 let navigationController = tabBarVC.viewControllers?.first as! UINavigationController
                                 let chatVC = navigationController.viewControllers.first as? ChatsListViewController
+                                chatVC?.dataController = self.dataController!
                                 chatVC?.networkConnectController = self.networkConnectController
-
-//                                let secondNav = tabBarVC.viewControllers?.last as! UINavigationController
-//                                let secondVC = secondNav.viewControllers.first as? SecondViewController
+                                
+                                //                                    let secondNav = tabBarVC.viewControllers?.last as! UINavigationController
+                                //                                    let secondVC = secondNav.viewControllers.first as? SecondViewController
                                 
                                 self.presentViewController(tabBarVC, animated: true, completion: nil)
                             }
@@ -131,7 +133,8 @@ class LoginRegViewController: UIViewController, UITableViewDelegate, UITableView
                         dataController!.registerNewUser()
                         self.dataController?.tryToLoginWithCredentials()
                         
-                        self.networkConnectController?.getAllUsersChat("q", page: "page", limit: 20, completion: { (chatsArray) in
+                        self.dataController!.getInitialChats("q", completion: {
+                            (resultsReturned) in
                             
                             dispatch_async(dispatch_get_main_queue()) {
                                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -139,10 +142,11 @@ class LoginRegViewController: UIViewController, UITableViewDelegate, UITableView
                                     
                                     let navigationController = tabBarVC.viewControllers?.first as! UINavigationController
                                     let chatVC = navigationController.viewControllers.first as? ChatsListViewController
+                                    chatVC?.dataController = self.dataController!
                                     chatVC?.networkConnectController = self.networkConnectController
                                     
-//                                    let secondNav = tabBarVC.viewControllers?.last as! UINavigationController
-//                                    let secondVC = secondNav.viewControllers.first as? SecondViewController
+                                    //                                    let secondNav = tabBarVC.viewControllers?.last as! UINavigationController
+                                    //                                    let secondVC = secondNav.viewControllers.first as? SecondViewController
                                     
                                     self.presentViewController(tabBarVC, animated: true, completion: nil)
                                 }

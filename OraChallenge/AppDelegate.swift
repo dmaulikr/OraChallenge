@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let loginRegViewController = navigationController.viewControllers.first as? LoginRegViewController {
             
             loginRegViewController.dataController = dataController
+            loginRegViewController.dataController?.networkConnectController = networkConnectController
             loginRegViewController.networkConnectController = networkConnectController
         }
         return true

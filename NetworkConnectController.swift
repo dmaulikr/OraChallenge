@@ -11,7 +11,6 @@ import Foundation
 class NetworkConnectController {
     
     var baseUrl: String = "http://private-d9e5b-oracodechallenge.apiary-mock.com"
-    var chatsArray = [Chat]()
 
     func loginUser(email: String, password: String) {
         
@@ -118,7 +117,7 @@ class NetworkConnectController {
     
     func getAllUsersChat(searchQueryString: String, page: String, limit: NSNumber, completion: ((chatsArray: [Chat]?) -> Void)) {
         
-        chatsArray.removeAll()
+        var chatsArray = [Chat]()
         
         let getChatsUrl = baseUrl.stringByAppendingString("/chats?q=\(searchQueryString)&page=\(page)&limit=\(limit)")
         print("getChatsUrl: \(getChatsUrl)")
@@ -129,7 +128,6 @@ class NetworkConnectController {
         request.HTTPMethod = "GET"
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
         
-        //        let dataTask = session.dataTaskWithRequest(request) { (data, response, error) in
         let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
     
             print("response: \(response)")
@@ -166,12 +164,12 @@ class NetworkConnectController {
                             
                             let chat = Chat(chatId: chatId, userId: userId, chatName: chatName, chatCreationDate: chatCreatedDate, userName: userName, lastMessageId: lastMessageId, lastMessageUserId: lastMessageUserId, lastMessageText: lastMessageText, lastMessageCreatedDate: lastMessageCreatedDate, lastMessageUserName: lastMessageUserName)
                             
-                            self.chatsArray.append(chat)
+                            chatsArray.append(chat)
                             startingInt += 1
                         }
                         
-                        print("chatsArray.count: \(self.chatsArray.count)")
-                        completion(chatsArray: self.chatsArray)
+                        print("chatsArray.count: \(chatsArray.count)")
+                        completion(chatsArray: chatsArray)
                     }
                     
                 } catch {
@@ -182,16 +180,154 @@ class NetworkConnectController {
         })
         
         dataTask.resume()
-        
     }
     
     
     
+    func searchChatsWithString(searchQueryString: String, page: String, limit: NSNumber, completion: ((chatsArray: [Chat]?) -> Void)) {
+        
+        var chatsArray = [Chat]()
+        
+        let getChatsUrl = baseUrl.stringByAppendingString("/chats?q=\(searchQueryString)&page=\(page)&limit=\(limit)")
+        print("getChatsUrl: \(getChatsUrl)")
+        let url:NSURL = NSURL(string: getChatsUrl)!
+        let session = NSURLSession.sharedSession()
+        
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "GET"
+        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        
+        let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) in
+            
+            print("response: \(response)")
+            let statusCode = (response as? NSHTTPURLResponse)?.statusCode
+            print("statusCode: \(statusCode)")
+            if statusCode == 200 {
+                do {
+                    print("data: \(data)")
+                    if data != nil{
+                        let dict = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves) as! NSDictionary
+                        
+                        print("dict: \(dict)")
+                        let dataArray = dict.objectForKey("data") as! NSArray
+                        print("dataArray: \(dataArray)")
+                        var startingInt = 0
+                        let dataArrayCount = dataArray.count
+                        //                        return chatsArray
+                        
+                        while startingInt < dataArrayCount {
+                            
+                            let chatId = (dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("id") as! Int
+                            let userId = (dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("user_id") as! Int
+                            let chatName = (dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("name") as! String
+                            let chatCreatedDate = (dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("created") as! String
+                            let userName = ((dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("user") as! NSDictionary).objectForKey("name") as! String
+                            let lastMessageId = ((dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("last_message") as! NSDictionary).objectForKey("id") as! Int
+                            let lastMessageUserId = ((dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("last_message") as! NSDictionary).objectForKey("user_id") as! Int
+                            let lastMessageText = ((dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("last_message") as! NSDictionary).objectForKey("message") as! String
+                            let lastMessageCreatedDate = ((dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("last_message") as! NSDictionary).objectForKey("created") as! String
+                            let lastMessageUserName = (((dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("last_message") as! NSDictionary).objectForKey("user") as! NSDictionary).objectForKey("name") as! String
+                            
+                            print("chatId: \(chatId)")
+                            print("lastMessageUserName: \(lastMessageUserName)")
+                            
+                            let chat = Chat(chatId: chatId, userId: userId, chatName: chatName, chatCreationDate: chatCreatedDate, userName: userName, lastMessageId: lastMessageId, lastMessageUserId: lastMessageUserId, lastMessageText: lastMessageText, lastMessageCreatedDate: lastMessageCreatedDate, lastMessageUserName: lastMessageUserName)
+                            
+                            chatsArray.append(chat)
+                            startingInt += 1
+                        }
+                        
+                        print("chatsArray.count: \(chatsArray.count)")
+                        completion(chatsArray: chatsArray)
+                    }
+                    
+                } catch {
+                    
+                    print("Error")
+                }
+            }
+        })
+        
+        dataTask.resume()
+    }
     
     
-    
-    
-    
+    func createNewChatWithName(newChatName: String, completion: ((chatsArray: [Chat]?) -> Void)) {
+        
+        var chatsArray = [Chat]()
+        
+        let createNewChatUrl = baseUrl.stringByAppendingString("/chats)")
+        let url:NSURL = NSURL(string: createNewChatUrl)!
+        let session = NSURLSession.sharedSession()
+        
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        
+        var postData: NSData!
+        
+        let chatNameDict = ["name": "A Chat"]
+        
+        do {
+            
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(chatNameDict, options: .PrettyPrinted)
+//            postData = try NSJSONSerialization.dataWithJSONObject(chatNameDict, options: .PrettyPrinted)
+            
+        } catch let error {
+            print("error: \(error)")
+        }
+        
+        //        let dataTask = session.dataTaskWithRequest(request) { (data, response, error) in
+        let dataTask = session.uploadTaskWithRequest(request, fromData: postData) { (data, response, error) in
+            
+            let statusCode = (response as? NSHTTPURLResponse)?.statusCode
+            print("response: \(response.debugDescription)")
+            if statusCode == 201 {
+                do {
+                    if data != nil{
+                        let dict = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves) as! NSDictionary
+                        
+                        print("dict: \(dict)")
+//                        let dataArray = dict.objectForKey("data") as! NSArray
+//                        print("dataArray: \(dataArray)")
+//                        var startingInt = 0
+//                        let dataArrayCount = dataArray.count
+                        
+//                        while startingInt < dataArrayCount {
+//                            
+//                            let chatId = (dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("id") as! Int
+//                            let userId = (dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("user_id") as! Int
+//                            let chatName = (dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("name") as! String
+//                            let chatCreatedDate = (dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("created") as! String
+//                            let userName = ((dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("user") as! NSDictionary).objectForKey("name") as! String
+//                            let lastMessageId = ((dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("last_message") as! NSDictionary).objectForKey("id") as! Int
+//                            let lastMessageUserId = ((dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("last_message") as! NSDictionary).objectForKey("user_id") as! Int
+//                            let lastMessageText = ((dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("last_message") as! NSDictionary).objectForKey("message") as! String
+//                            let lastMessageCreatedDate = ((dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("last_message") as! NSDictionary).objectForKey("created") as! String
+//                            let lastMessageUserName = (((dataArray.objectAtIndex(startingInt) as! NSDictionary).objectForKey("last_message") as! NSDictionary).objectForKey("user") as! NSDictionary).objectForKey("name") as! String
+//                            
+//                            print("chatId: \(chatId)")
+//                            print("lastMessageUserName: \(lastMessageUserName)")
+//                            
+//                            let chat = Chat(chatId: chatId, userId: userId, chatName: chatName, chatCreationDate: chatCreatedDate, userName: userName, lastMessageId: lastMessageId, lastMessageUserId: lastMessageUserId, lastMessageText: lastMessageText, lastMessageCreatedDate: lastMessageCreatedDate, lastMessageUserName: lastMessageUserName)
+//                            
+//                            chatsArray.append(chat)
+//                            startingInt += 1
+//                        }
+                        
+//                        print("chatsArray.count: \(chatsArray.count)")
+                        completion(chatsArray: chatsArray)
+                    }
+                    
+                } catch {
+                    
+                    print("Error")
+                }
+            }
+        }
+        
+        dataTask.resume()
+    }
     
     
     

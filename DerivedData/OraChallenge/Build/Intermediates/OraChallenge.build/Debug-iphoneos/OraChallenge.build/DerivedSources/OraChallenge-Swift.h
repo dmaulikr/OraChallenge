@@ -176,7 +176,7 @@ SWIFT_CLASS("_TtC12OraChallenge13ChatsListCell")
 @class NSBundle;
 
 SWIFT_CLASS("_TtC12OraChallenge23ChatsListViewController")
-@interface ChatsListViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ChatsListViewController : UIViewController <UIBarPositioningDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate, UITableViewDelegate>
 @property (nonatomic, strong) IBOutlet UITableView * _Null_unspecified chatsTableView;
 @property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified plusButton;
 @property (nonatomic, strong) IBOutlet UISearchBar * _Null_unspecified chatsSearchBar;
@@ -190,6 +190,9 @@ SWIFT_CLASS("_TtC12OraChallenge23ChatsListViewController")
 - (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)searchBarCancelButtonClicked:(UISearchBar * _Nonnull)searchBar;
+- (void)searchBarSearchButtonClicked:(UISearchBar * _Nonnull)searchBar;
+- (void)enterNewChatNameAlert:(NSString * _Nonnull)title message:(NSString * _Nonnull)message;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;

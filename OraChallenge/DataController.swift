@@ -17,8 +17,12 @@ class DataController {
     
     var emailIsValid: Bool!
     
+    var lastSearchText: String!
+    
     var networkConnectController: NetworkConnectController?
     
+    var chatsArray = [Chat]()
+
     func loginTextFieldUpdated(textField: String, updatedText: String) {
         
         if textField == "email" {
@@ -146,6 +150,38 @@ class DataController {
     func registerNewUser() {
         
         networkConnectController!.registerNewUser(name, email: email!, password: password, confirm: confirmPassword)
+    }
+
+    
+    func getInitialChats(initialSearchString: String, completion:  ((resultsReturned: Bool?) -> Void)) {
+        
+        self.networkConnectController?.getAllUsersChat(initialSearchString, page: "page", limit: 20, completion: { (chatsArray) in
+            
+            self.chatsArray = chatsArray!
+            completion(resultsReturned: true)
+        })
+    }
+
+ 
+    
+    func searchBarBeginSearch(searchString: String, completion:  ((resultsReturned: Bool?) -> Void)) {
+        
+        self.networkConnectController?.searchChatsWithString(searchString, page: "page", limit: 20, completion: { (chatsArray) in
+            
+            self.chatsArray = chatsArray!
+            completion(resultsReturned: true)
+        })
+    }
+    
+    
+    
+    func createNewChat(newChatName: String, completion:  ((resultsReturned: Bool?) -> Void)) {
+        
+        self.networkConnectController?.createNewChatWithName(newChatName, completion: { (chatsArray) in
+            
+            self.chatsArray = chatsArray!
+            completion(resultsReturned: true)
+        })
     }
     
     

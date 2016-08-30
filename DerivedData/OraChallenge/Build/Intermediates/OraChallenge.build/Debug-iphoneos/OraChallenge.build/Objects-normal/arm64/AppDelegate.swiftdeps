@@ -6,27 +6,27 @@ provides-nominal:
 provides-member:
 - ["C12OraChallenge11AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationWillTerminate"
-- "applicationWillResignActive"
 - "applicationDidBecomeActive"
-- "applicationWillEnterForeground"
+- "applicationWillResignActive"
+- "applicationWillTerminate"
 - "applicationDidEnterBackground"
-- "window"
+- "applicationWillEnterForeground"
 - "application"
+- "window"
 depends-top-level:
 - "NSObject"
+- "DataController"
+- "UIWindow"
+- "UIResponder"
+- "NetworkConnectController"
+- "AppDelegate"
+- !private "LoginRegViewController"
+- "UIApplication"
+- "AnyObject"
+- !private "UINavigationController"
+- "Bool"
 - "UIApplicationDelegate"
 - !private "BooleanLiteralType"
-- "Bool"
-- !private "UINavigationController"
-- "DataController"
-- "AppDelegate"
-- "AnyObject"
-- "NetworkConnectController"
-- "UIApplication"
-- "UIResponder"
-- "UIWindow"
-- !private "LoginRegViewController"
 depends-member:
 - ["Ps9AnyObject", "DataController"]
 - ["Ps9AnyObject", "NetworkConnectController"]
@@ -177,6 +177,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "window"]
 - ["Ps23CustomStringConvertible", ""]
 - ["C12OraChallenge14DataController", "init"]
+- !private ["C12OraChallenge14DataController", "networkConnectController"]
 - ["Ps9Equatable", "DataController"]
 - !private ["Ps9Equatable", "Distance"]
 - !private ["Ps9Equatable", "IntegerLiteralType"]

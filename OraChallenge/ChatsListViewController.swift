@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ChatsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-    var dataController = DataController()
+    var dataController: DataController?
 //    var networkConnectController = NetworkConnectController()
     var networkConnectController: NetworkConnectController?
 
@@ -33,14 +33,16 @@ class ChatsListViewController: UIViewController, UITableViewDelegate, UITableVie
         plusButton.layer.cornerRadius = plusButton.frame.size.width / 2
         plusButtonYellow = plusButton.backgroundColor
         
-        chatsArray = networkConnectController!.chatsArray
+        chatsArray = dataController!.chatsArray
+        
+        chatsSearchBar.delegate = self
     }
     
     
 
     @IBAction func plusButtonPressed(sender: AnyObject) {
         
-        
+        enterNewChatNameAlert("Enter a New Chat Name", message: "")
     }
     
     
@@ -134,7 +136,91 @@ class ChatsListViewController: UIViewController, UITableViewDelegate, UITableVie
 
     
     
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+
+        searchBar.text = ""
+        searchBar.endEditing(true)
+    }
     
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+
+        self.dataController!.searchBarBeginSearch(searchBar.text!, completion: {
+            (resultsReturned) in
+            
+            dispatch_async(dispatch_get_main_queue()) {
+            
+                self.chatsArray = self.dataController!.chatsArray
+                self.chatsSearchBar.endEditing(true)
+                self.chatsTableView.reloadData()
+            }
+        })
+    }
+    
+    
+//    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+//        
+//    }
+//    
+//    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+//        
+//    }
+//
+//    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+//        
+//    }
+    
+    
+    
+    func enterNewChatNameAlert(title:String, message:String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        
+//        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"confirm the modification" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+//            UITextField *password = alertController.textFields.firstObject;
+//            if (![password.text isEqualToString:@""]) {
+//                
+//                //change password
+//                
+//            }
+//            else{
+//                [self presentViewController:alertController animated:YES completion:nil];
+//            }
+//        }];
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action:UIAlertAction!) in
+            
+            let nameTextField: UITextField = (alert.textFields?.first)!
+            print("nameTextField.text: \(nameTextField.text)")
+            if nameTextField.text != "" {
+                
+                self.dataController!.createNewChat(nameTextField.text!, completion: { (resultsReturned) in
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        
+                        self.chatsArray = self.dataController!.chatsArray
+                        self.chatsSearchBar.endEditing(true)
+                        self.chatsTableView.reloadData()
+                        //                    alert.dismissViewControllerAnimated(true, completion: nil)
+                        
+                    }
+                })
+            }
+//            alert.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action:UIAlertAction!) in
+            
+            alert.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        
+        alert.addTextFieldWithConfigurationHandler { (textField) in
+
+        }
+        
+        presentViewController(alert, animated: true, completion: nil)
+    }
     
     
     
