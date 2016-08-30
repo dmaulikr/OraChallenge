@@ -42,7 +42,7 @@ class AccountNRegistrationCells: UITableViewCell, UITextFieldDelegate {
         
         textField.frame = CGRectMake(10, 0, self.contentView.bounds.size.width, self.contentView.bounds.size.height)
         
-        self.separatorInset = UIEdgeInsetsMake(0, self.contentView.bounds.size.width * 0.025, 0, 0)
+//        self.separatorInset = UIEdgeInsetsMake(0, self.contentView.bounds.size.width * 0.025, 0, 0)
         
         if cellIndexPathRow == 0 {
             

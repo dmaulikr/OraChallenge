@@ -12,6 +12,7 @@ import UIKit
 class LoginRegViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var dataController: DataController?
+    var networkConnectController: NetworkConnectController?
     
     var tableView: UITableView!
     var isShowingLoginTV: Bool!
@@ -33,6 +34,7 @@ class LoginRegViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.registerClass(AccountNRegistrationCells.self, forCellReuseIdentifier: "accountNRegCellID")
         tableView.scrollEnabled = false
         tableView.allowsSelection = false
+        tableView.separatorStyle = .None
         tableView.delegate = self
         tableView.dataSource = self 
         
@@ -86,14 +88,28 @@ class LoginRegViewController: UIViewController, UITableViewDelegate, UITableView
             if dataController?.loginFieldsAreComplete() == true {
                 
                 if dataController?.emailIsValid == true {
-                    
-                    dataController?.tryToLoginWithCredentials()
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    if let tabBarVC = storyboard.instantiateViewControllerWithIdentifier("tabBarCont") as? UITabBarController {
-                        presentViewController(tabBarVC, animated: true, completion: nil)
-                    }
-                    print("check against API and segue to main chat view controller")
+                          
+                    self.dataController?.tryToLoginWithCredentials()
+                   
+                    self.networkConnectController?.getAllUsersChat("q", page: "page", limit: 20, completion: { (chatsArray) in
+                        
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            if let tabBarVC = storyboard.instantiateViewControllerWithIdentifier("tabBarCont") as? UITabBarController {
+                                
+                                let navigationController = tabBarVC.viewControllers?.first as! UINavigationController
+                                let chatVC = navigationController.viewControllers.first as? ChatsListViewController
+                                chatVC?.networkConnectController = self.networkConnectController
 
+//                                let secondNav = tabBarVC.viewControllers?.last as! UINavigationController
+//                                let secondVC = secondNav.viewControllers.first as? SecondViewController
+                                
+                                self.presentViewController(tabBarVC, animated: true, completion: nil)
+                            }
+                            print("check against API and segue to main chat view controller")
+                        }
+                    })
+                    
                 } else {
                     
                     showIncompleteAlert("Please make sure you've entered the email address correctly", message: "")
@@ -113,12 +129,27 @@ class LoginRegViewController: UIViewController, UITableViewDelegate, UITableView
                     if dataController?.passwordsMatch() == true {
                         
                         dataController!.registerNewUser()
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        if let tabBarVC = storyboard.instantiateViewControllerWithIdentifier("tabBarCont") as? UITabBarController {
-                            presentViewController(tabBarVC, animated: true, completion: nil)
-                        }
-                        print("check against API and segue to main chat view controller")
+                        self.dataController?.tryToLoginWithCredentials()
                         
+                        self.networkConnectController?.getAllUsersChat("q", page: "page", limit: 20, completion: { (chatsArray) in
+                            
+                            dispatch_async(dispatch_get_main_queue()) {
+                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                if let tabBarVC = storyboard.instantiateViewControllerWithIdentifier("tabBarCont") as? UITabBarController {
+                                    
+                                    let navigationController = tabBarVC.viewControllers?.first as! UINavigationController
+                                    let chatVC = navigationController.viewControllers.first as? ChatsListViewController
+                                    chatVC?.networkConnectController = self.networkConnectController
+                                    
+//                                    let secondNav = tabBarVC.viewControllers?.last as! UINavigationController
+//                                    let secondVC = secondNav.viewControllers.first as? SecondViewController
+                                    
+                                    self.presentViewController(tabBarVC, animated: true, completion: nil)
+                                }
+                                print("check against API and segue to main chat view controller")
+                            }
+                        })
+                    
                     } else {
                         
                         showIncompleteAlert("Please make sure the passwords are matching and try to Register again", message: "")
@@ -166,12 +197,14 @@ class LoginRegViewController: UIViewController, UITableViewDelegate, UITableView
         if isShowingLoginTV == true {
             
             loginCell.cellIndexPathRow = indexPath.row
+            loginCell.separatorInset = UIEdgeInsetsMake(0, loginCell.contentView.bounds.size.width * 0.025, 0, 0)
             loginCellsArray.append(loginCell)
             return loginCell
             
         } else {
             
             accountNRegistrationCells.cellIndexPathRow = indexPath.row
+            accountNRegistrationCells.separatorInset = UIEdgeInsetsMake(0, accountNRegistrationCells.contentView.bounds.size.width * 0.025, 0, 0)
             accountNRegCellsArray.append(accountNRegistrationCells)
             return accountNRegistrationCells
         }

@@ -52,7 +52,7 @@ class LoginCells: UITableViewCell, UITextFieldDelegate{
         let textFieldWidth = self.contentView.bounds.size.width - textFieldXPos
         textField.frame = CGRectMake(textFieldXPos, 0, textFieldWidth, self.contentView.bounds.size.height)
         
-        self.separatorInset = UIEdgeInsetsMake(0, self.contentView.bounds.size.width * 0.025, 0, 0)
+//        self.separatorInset = UIEdgeInsetsMake(0, self.contentView.bounds.size.width * 0.025, 0, 0)
 
         if cellIndexPathRow == 0 {
             

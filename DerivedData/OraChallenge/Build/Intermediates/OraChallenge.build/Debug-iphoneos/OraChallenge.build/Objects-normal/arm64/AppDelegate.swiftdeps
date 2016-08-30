@@ -6,27 +6,27 @@ provides-nominal:
 provides-member:
 - ["C12OraChallenge11AppDelegate", ""]
 provides-dynamic-lookup:
+- "applicationWillTerminate"
+- "applicationWillResignActive"
+- "applicationDidBecomeActive"
 - "applicationWillEnterForeground"
 - "applicationDidEnterBackground"
-- "applicationDidBecomeActive"
 - "window"
-- "applicationWillTerminate"
 - "application"
-- "applicationWillResignActive"
 depends-top-level:
-- "AppDelegate"
-- "NetworkConnectController"
-- !private "LoginRegViewController"
-- "Bool"
-- "AnyObject"
-- !private "UINavigationController"
-- "UIResponder"
 - "NSObject"
-- "UIApplication"
-- !private "BooleanLiteralType"
 - "UIApplicationDelegate"
+- !private "BooleanLiteralType"
+- "Bool"
+- !private "UINavigationController"
 - "DataController"
+- "AppDelegate"
+- "AnyObject"
+- "NetworkConnectController"
+- "UIApplication"
+- "UIResponder"
 - "UIWindow"
+- !private "LoginRegViewController"
 depends-member:
 - ["Ps9AnyObject", "DataController"]
 - ["Ps9AnyObject", "NetworkConnectController"]
@@ -177,7 +177,6 @@ depends-member:
 - ["Ps23CustomStringConvertible", "window"]
 - ["Ps23CustomStringConvertible", ""]
 - ["C12OraChallenge14DataController", "init"]
-- !private ["C12OraChallenge14DataController", "networkConnectController"]
 - ["Ps9Equatable", "DataController"]
 - !private ["Ps9Equatable", "Distance"]
 - !private ["Ps9Equatable", "IntegerLiteralType"]
@@ -242,6 +241,7 @@ depends-member:
 - !private ["Ps11IntegerType", "Distance"]
 - !private ["Ps11IntegerType", "IntegerLiteralType"]
 - !private ["C12OraChallenge22LoginRegViewController", "dataController"]
+- !private ["C12OraChallenge22LoginRegViewController", "networkConnectController"]
 - !private ["Ps14MirrorPathType", "Distance"]
 - !private ["Ps14MirrorPathType", "IntegerLiteralType"]
 - !private ["Ps21MutableCollectionType", "Generator"]
@@ -260,9 +260,11 @@ depends-member:
 - !private ["Ps16MutableSliceable", "_Element"]
 - !private ["Ps16MutableSliceable", "first"]
 - !private ["PSo8NSCoding", "dataController"]
+- !private ["PSo8NSCoding", "networkConnectController"]
 - !private ["PSo8NSCoding", "rootViewController"]
 - !private ["PSo8NSCoding", "viewControllers"]
 - !private ["PSo26NSExtensionRequestHandling", "dataController"]
+- !private ["PSo26NSExtensionRequestHandling", "networkConnectController"]
 - !private ["PSo26NSExtensionRequestHandling", "viewControllers"]
 - ["CSo8NSObject", "AnyObject"]
 - ["CSo8NSObject", "Bool"]
@@ -338,6 +340,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "rootViewController"]
 - !private ["PSo12UIAppearance", "rootViewController"]
 - !private ["PSo21UIAppearanceContainer", "dataController"]
+- !private ["PSo21UIAppearanceContainer", "networkConnectController"]
 - !private ["PSo21UIAppearanceContainer", "rootViewController"]
 - !private ["PSo21UIAppearanceContainer", "viewControllers"]
 - ["PSo21UIApplicationDelegate", "DataController"]
@@ -359,10 +362,12 @@ depends-member:
 - ["PSo21UIApplicationDelegate", "window"]
 - ["PSo21UIApplicationDelegate", ""]
 - !private ["PSo18UIContentContainer", "dataController"]
+- !private ["PSo18UIContentContainer", "networkConnectController"]
 - !private ["PSo18UIContentContainer", "viewControllers"]
 - !private ["PSo17UICoordinateSpace", "rootViewController"]
 - !private ["PSo13UIDynamicItem", "rootViewController"]
 - !private ["PSo18UIFocusEnvironment", "dataController"]
+- !private ["PSo18UIFocusEnvironment", "networkConnectController"]
 - !private ["PSo18UIFocusEnvironment", "rootViewController"]
 - !private ["PSo18UIFocusEnvironment", "viewControllers"]
 - !private ["CSo22UINavigationController", "viewControllers"]
@@ -395,15 +400,21 @@ depends-member:
 - ["CSo11UIResponder", "window"]
 - ["CSo11UIResponder", ""]
 - !private ["PSo20UIScrollViewDelegate", "dataController"]
+- !private ["PSo20UIScrollViewDelegate", "networkConnectController"]
 - !private ["PSo16UIStateRestoring", "dataController"]
+- !private ["PSo16UIStateRestoring", "networkConnectController"]
 - !private ["PSo16UIStateRestoring", "viewControllers"]
 - !private ["PSo21UITableViewDataSource", "dataController"]
+- !private ["PSo21UITableViewDataSource", "networkConnectController"]
 - !private ["PSo19UITableViewDelegate", "dataController"]
+- !private ["PSo19UITableViewDelegate", "networkConnectController"]
 - !private ["PSo18UITraitEnvironment", "dataController"]
+- !private ["PSo18UITraitEnvironment", "networkConnectController"]
 - !private ["PSo18UITraitEnvironment", "rootViewController"]
 - !private ["PSo18UITraitEnvironment", "viewControllers"]
 - !private ["CSo6UIView", "rootViewController"]
 - !private ["CSo16UIViewController", "dataController"]
+- !private ["CSo16UIViewController", "networkConnectController"]
 - !private ["CSo16UIViewController", "viewControllers"]
 - !private ["CSo8UIWindow", "rootViewController"]
 - !private ["Ps10_ArrayType", "Generator"]
@@ -517,6 +528,55 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Users/DanH/Desktop/OraChallenge/OraChallenge/OraChallenge-Bridging-Header.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesTypingView.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesMediaPlaceholderView.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesViewAccessoryButtonDelegate.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQVideoMediaItem.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQLocationMediaItem.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQPhotoMediaItem.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQAudioMediaItem.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMediaItem.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessageMediaData.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessageData.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessage.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQAudioMediaViewAttributes.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesCollectionViewFlowLayoutInvalidationContext.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesCollectionViewLayoutAttributes.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesBubblesSizeCalculator.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesLoadEarlierHeaderView.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesTypingIndicatorFooterView.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesCollectionViewCellOutgoing.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesCollectionViewCellIncoming.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessages.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesToolbarButtonFactory.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesTimestampFormatter.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesMediaViewBubbleImageMasker.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessageBubbleImageDataSource.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesBubbleImage.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesBubbleImageFactory.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessageAvatarImageDataSource.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesAvatarImage.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesAvatarImageFactory.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesComposerTextView.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesToolbarContentView.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesInputToolbar.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesCellTextView.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesLabel.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesCollectionViewCell.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesCollectionViewDataSource.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesCollectionViewDelegateFlowLayout.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesBubbleSizeCalculating.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesCollectionViewFlowLayout.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesCollectionView.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesViewController.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/UIView+JSQMessages.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/UIImage+JSQMessages.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/UIColor+JSQMessages.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/NSString+JSQMessages.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/NSBundle+JSQMessages.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Headers/JSQMessagesViewController-umbrella.h"
+- "/Users/DanH/Desktop/OraChallenge/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
@@ -524,4 +584,8 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
 interface-hash: "6895369ec5db879c2f102e5e50caf346"

@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--OraChat-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController storyboardIdentifier="chatsVC" id="9pv-A4-QxB" customClass="FirstViewController" customModule="OraChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chatsVC" id="9pv-A4-QxB" customClass="ChatsListViewController" customModule="OraChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -17,40 +18,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="221" y="279" width="158" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="203" y="329" width="195" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="EOt-4q-5qc">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Sa-0i-Fwv">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatListCellID" id="q55-B7-qlw">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q55-B7-qlw" id="qum-UI-GPp">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HE2-1t-cEf">
+                                <rect key="frame" x="540" y="490" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.71821511729999998" blue="0.2392739445" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="81J-NN-A6n"/>
+                                    <constraint firstAttribute="height" constant="50" id="txq-Xu-2J3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="plusButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Wzw-Vb-EBe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
+                            <constraint firstAttribute="trailing" secondItem="EOt-4q-5qc" secondAttribute="trailing" id="4he-Af-pWC"/>
+                            <constraint firstItem="EOt-4q-5qc" firstAttribute="leading" secondItem="2Sa-0i-Fwv" secondAttribute="leading" id="A1v-Di-KWF"/>
                             <constraint firstItem="EOt-4q-5qc" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="IMT-mH-Y8S"/>
-                            <constraint firstItem="EOt-4q-5qc" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="U4C-M7-CgM"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="HE2-1t-cEf" secondAttribute="bottom" constant="11" id="IwZ-2j-weF"/>
+                            <constraint firstItem="EOt-4q-5qc" firstAttribute="trailing" secondItem="2Sa-0i-Fwv" secondAttribute="trailing" id="OvB-4r-s2t"/>
+                            <constraint firstItem="2Sa-0i-Fwv" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="leO-4W-iEw"/>
                             <constraint firstItem="EOt-4q-5qc" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="pc6-OZ-Zql"/>
+                            <constraint firstItem="2Sa-0i-Fwv" firstAttribute="top" secondItem="EOt-4q-5qc" secondAttribute="bottom" id="tp4-Dj-oBU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HE2-1t-cEf" secondAttribute="trailing" constant="-10" id="zox-ZL-jiP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="OraChat" id="fFP-rn-hSZ">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="vOo-hw-9cK">
-                            <color key="tintColor" red="1" green="0.71821511729999998" blue="0.2392739445" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="OraChat" id="fFP-rn-hSZ"/>
+                    <connections>
+                        <outlet property="chatsSearchBar" destination="EOt-4q-5qc" id="eqY-9Z-dv6"/>
+                        <outlet property="chatsTableView" destination="2Sa-0i-Fwv" id="AhM-OX-0eM"/>
+                        <outlet property="plusButton" destination="HE2-1t-cEf" id="oc5-PQ-gla"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>

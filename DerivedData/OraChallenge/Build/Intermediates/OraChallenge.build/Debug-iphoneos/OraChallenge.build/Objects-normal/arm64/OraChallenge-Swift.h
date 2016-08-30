@@ -93,6 +93,8 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 #endif
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
+@import ObjectiveC;
+@import CoreGraphics;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -131,17 +133,67 @@ SWIFT_CLASS("_TtC12OraChallenge11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSDictionary;
+
+SWIFT_CLASS("_TtC12OraChallenge4Chat")
+@interface Chat : NSObject
+@property (nonatomic, copy) NSString * _Null_unspecified chatName;
+@property (nonatomic, copy) NSString * _Null_unspecified chatCreatedDate;
+@property (nonatomic, strong) NSDictionary * _Null_unspecified userDataDict;
+@property (nonatomic, copy) NSString * _Null_unspecified userName;
+@property (nonatomic, copy) NSString * _Null_unspecified lastMessageText;
+@property (nonatomic, copy) NSString * _Null_unspecified lastMessageCreatedDate;
+@property (nonatomic, copy) NSString * _Null_unspecified lastMessageUserName;
+- (nonnull instancetype)initWithChatId:(NSInteger)chatId userId:(NSInteger)userId chatName:(NSString * _Nonnull)chatName chatCreationDate:(NSString * _Nonnull)chatCreationDate userName:(NSString * _Nonnull)userName lastMessageId:(NSInteger)lastMessageId lastMessageUserId:(NSInteger)lastMessageUserId lastMessageText:(NSString * _Nonnull)lastMessageText lastMessageCreatedDate:(NSString * _Nonnull)lastMessageCreatedDate lastMessageUserName:(NSString * _Nonnull)lastMessageUserName OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UILabel;
+
+SWIFT_CLASS("_TtC12OraChallenge13ChatsListCell")
+@interface ChatsListCell : UITableViewCell
+@property (nonatomic, strong) UILabel * _Nonnull authorTitleHeaderLabel;
+@property (nonatomic, strong) UILabel * _Nonnull authorDateLabel;
+@property (nonatomic, strong) UILabel * _Nonnull lastMessageTextLabel;
+@property (nonatomic) CGFloat chatListCellHeight;
+@property (nonatomic) CGFloat labelsXPos;
+@property (nonatomic) CGFloat labelsWidth;
+@property (nonatomic) CGFloat labelsHeight;
+@property (nonatomic) CGFloat topMargin;
+@property (nonatomic) CGFloat bottomMargin;
+@property (nonatomic) CGFloat interLabelMargin;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (void)layoutSubviews;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UITableView;
+@class UIButton;
+@class UISearchBar;
+@class UIColor;
+@class UIView;
+@class NSIndexPath;
 @class NSBundle;
 
-SWIFT_CLASS("_TtC12OraChallenge19FirstViewController")
-@interface FirstViewController : UIViewController
+SWIFT_CLASS("_TtC12OraChallenge23ChatsListViewController")
+@interface ChatsListViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) IBOutlet UITableView * _Null_unspecified chatsTableView;
+@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified plusButton;
+@property (nonatomic, strong) IBOutlet UISearchBar * _Null_unspecified chatsSearchBar;
+@property (nonatomic, copy) NSArray<Chat *> * _Nonnull chatsArray;
+@property (nonatomic, copy) NSArray<ChatsListCell *> * _Nonnull chatCellsArray;
+@property (nonatomic, strong) UIColor * _Null_unspecified plusButtonYellow;
 - (void)viewDidLoad;
+- (IBAction)plusButtonPressed:(id _Nonnull)sender;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UILabel;
 
 SWIFT_CLASS("_TtC12OraChallenge10LoginCells")
 @interface LoginCells : UITableViewCell <UITextFieldDelegate>
@@ -157,9 +209,7 @@ SWIFT_CLASS("_TtC12OraChallenge10LoginCells")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UITableView;
 @class UIBarButtonItem;
-@class NSIndexPath;
 
 SWIFT_CLASS("_TtC12OraChallenge22LoginRegViewController")
 @interface LoginRegViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
