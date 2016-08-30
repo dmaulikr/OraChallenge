@@ -37,12 +37,5 @@ class Chat: NSObject {
         
         self.userDataDict = ["id": userId, "name": userName]
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
 }

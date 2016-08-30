@@ -171,6 +171,7 @@ SWIFT_CLASS("_TtC12OraChallenge13ChatsListCell")
 @class UITableView;
 @class UIButton;
 @class UISearchBar;
+@class UIBarButtonItem;
 @class UIView;
 @class NSIndexPath;
 @class NSBundle;
@@ -180,6 +181,7 @@ SWIFT_CLASS("_TtC12OraChallenge23ChatsListViewController")
 @property (nonatomic, strong) IBOutlet UITableView * _Null_unspecified chatsTableView;
 @property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified plusButton;
 @property (nonatomic, strong) IBOutlet UISearchBar * _Null_unspecified chatsSearchBar;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified backButton;
 @property (nonatomic, copy) NSArray<Chat *> * _Nonnull chatsArray;
 @property (nonatomic, copy) NSArray<ChatsListCell *> * _Nonnull chatCellsArray;
 @property (nonatomic, strong) UIColor * _Null_unspecified plusButtonYellow;
@@ -190,6 +192,7 @@ SWIFT_CLASS("_TtC12OraChallenge23ChatsListViewController")
 - (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)searchBarCancelButtonClicked:(UISearchBar * _Nonnull)searchBar;
 - (void)searchBarSearchButtonClicked:(UISearchBar * _Nonnull)searchBar;
 - (void)enterNewChatNameAlert:(NSString * _Nonnull)title message:(NSString * _Nonnull)message;
@@ -213,7 +216,6 @@ SWIFT_CLASS("_TtC12OraChallenge10LoginCells")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UIBarButtonItem;
 
 SWIFT_CLASS("_TtC12OraChallenge22LoginRegViewController")
 @interface LoginRegViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -231,6 +233,19 @@ SWIFT_CLASS("_TtC12OraChallenge22LoginRegViewController")
 - (void)showIncompleteAlert:(NSString * _Nonnull)title message:(NSString * _Nonnull)message;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC12OraChallenge7Message")
+@interface Message : NSObject
+@property (nonatomic, copy) NSString * _Null_unspecified chatName;
+@property (nonatomic, copy) NSString * _Null_unspecified chatCreatedDate;
+@property (nonatomic, strong) NSDictionary * _Null_unspecified userDataDict;
+@property (nonatomic, copy) NSString * _Null_unspecified userName;
+@property (nonatomic, copy) NSString * _Null_unspecified lastMessageText;
+@property (nonatomic, copy) NSString * _Null_unspecified lastMessageCreatedDate;
+@property (nonatomic, copy) NSString * _Null_unspecified lastMessageUserName;
+- (nonnull instancetype)initWithChatId:(NSInteger)chatId userId:(NSInteger)userId chatName:(NSString * _Nonnull)chatName chatCreationDate:(NSString * _Nonnull)chatCreationDate userName:(NSString * _Nonnull)userName lastMessageId:(NSInteger)lastMessageId lastMessageUserId:(NSInteger)lastMessageUserId lastMessageText:(NSString * _Nonnull)lastMessageText lastMessageCreatedDate:(NSString * _Nonnull)lastMessageCreatedDate lastMessageUserName:(NSString * _Nonnull)lastMessageUserName OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

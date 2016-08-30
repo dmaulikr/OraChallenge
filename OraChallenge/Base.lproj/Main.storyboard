@@ -65,16 +65,40 @@
                             <constraint firstAttribute="trailingMargin" secondItem="HE2-1t-cEf" secondAttribute="trailing" constant="-10" id="zox-ZL-jiP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="OraChat" id="fFP-rn-hSZ"/>
+                    <navigationItem key="navigationItem" title="OraChat" id="fFP-rn-hSZ">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="AFZ-2E-5Pn">
+                            <color key="tintColor" red="1" green="0.71821511729999998" blue="0.2392739445" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="AFZ-2E-5Pn" id="DSU-kT-DED"/>
                         <outlet property="chatsSearchBar" destination="EOt-4q-5qc" id="eqY-9Z-dv6"/>
                         <outlet property="chatsTableView" destination="2Sa-0i-Fwv" id="AhM-OX-0eM"/>
                         <outlet property="plusButton" destination="HE2-1t-cEf" id="oc5-PQ-gla"/>
+                        <segue destination="2g8-EQ-lox" kind="show" identifier="showMessagesSegue" id="Ohs-Tk-8xJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2374" y="-320"/>
+            <point key="canvasLocation" x="2355" y="-320"/>
+        </scene>
+        <!--Messages View Controller-->
+        <scene sceneID="Llg-HD-Jos">
+            <objects>
+                <viewController id="2g8-EQ-lox" customClass="MessagesViewController" customModule="OraChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0q1-bp-eYa"/>
+                        <viewControllerLayoutGuide type="bottom" id="G2Y-FX-SND"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u8j-d3-uan">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5cM-Ha-wE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3150" y="-320"/>
         </scene>
         <!--Account-->
         <scene sceneID="wg7-f3-ORb">

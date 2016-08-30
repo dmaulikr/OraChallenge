@@ -13,11 +13,13 @@ class ChatsListViewController: UIViewController, UITableViewDelegate, UITableVie
     var dataController: DataController?
 //    var networkConnectController = NetworkConnectController()
     var networkConnectController: NetworkConnectController?
-
+    var window: UIWindow?
 
     @IBOutlet var chatsTableView: UITableView!
     @IBOutlet var plusButton: UIButton!
     @IBOutlet var chatsSearchBar: UISearchBar!
+    
+    @IBOutlet var backButton: UIBarButtonItem!
     
     var chatsArray = [Chat]()
     var chatCellsArray = [ChatsListCell]()
@@ -36,6 +38,7 @@ class ChatsListViewController: UIViewController, UITableViewDelegate, UITableVie
         chatsArray = dataController!.chatsArray
         
         chatsSearchBar.delegate = self
+        self.navigationItem.hidesBackButton = true 
     }
     
     
@@ -46,6 +49,7 @@ class ChatsListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
+    //MARK: TableView Delegate methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         return chatsArray.count
@@ -131,11 +135,30 @@ class ChatsListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         chatCellsArray.append(chatsListCell)
         return chatsListCell
-
     }
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let chatId = chatsArray[indexPath.section].chatId
+        self.dataController!.getAllMessagesForSelectedChat(chatId, completion: { (resultsReturned) in
+            
+            dispatch_async(dispatch_get_main_queue()) {
 
+                if let navigationController = self.window?.rootViewController as? UINavigationController,
+                    let messagesVC = navigationController.viewControllers.last as? MessagesViewController {
+
+                    messagesVC.dataController = self.dataController!
+                    messagesVC.networkConnectController = self.networkConnectController
+                    
+                    self.performSegueWithIdentifier("showMessagesSegue", sender: nil)
+                }
+            }
+        })
+    }
     
     
+    //MARK: Search Bar Delegate Methods
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
 
         searchBar.text = ""
@@ -157,36 +180,9 @@ class ChatsListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
-//    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-//        
-//    }
-//    
-//    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-//        
-//    }
-//
-//    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-//        
-//    }
-    
-    
-    
     func enterNewChatNameAlert(title:String, message:String) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        
-        
-//        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"confirm the modification" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-//            UITextField *password = alertController.textFields.firstObject;
-//            if (![password.text isEqualToString:@""]) {
-//                
-//                //change password
-//                
-//            }
-//            else{
-//                [self presentViewController:alertController animated:YES completion:nil];
-//            }
-//        }];
         
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action:UIAlertAction!) in
             
@@ -201,12 +197,9 @@ class ChatsListViewController: UIViewController, UITableViewDelegate, UITableVie
                         self.chatsArray = self.dataController!.chatsArray
                         self.chatsSearchBar.endEditing(true)
                         self.chatsTableView.reloadData()
-                        //                    alert.dismissViewControllerAnimated(true, completion: nil)
-                        
                     }
                 })
             }
-//            alert.dismissViewControllerAnimated(true, completion: nil)
         }))
         
         
@@ -218,7 +211,6 @@ class ChatsListViewController: UIViewController, UITableViewDelegate, UITableVie
         alert.addTextFieldWithConfigurationHandler { (textField) in
 
         }
-        
         presentViewController(alert, animated: true, completion: nil)
     }
     

@@ -22,6 +22,7 @@ class DataController {
     var networkConnectController: NetworkConnectController?
     
     var chatsArray = [Chat]()
+    var messagesArray = [Message]()
 
     func loginTextFieldUpdated(textField: String, updatedText: String) {
         
@@ -180,6 +181,17 @@ class DataController {
         self.networkConnectController?.createNewChatWithName(newChatName, completion: { (chatsArray) in
             
             self.chatsArray = chatsArray!
+            completion(resultsReturned: true)
+        })
+    }
+    
+    
+    
+    func getAllMessagesForSelectedChat(chatId: NSNumber, completion:  ((resultsReturned: Bool?) -> Void)) {
+        
+        self.networkConnectController?.getMessagesForSelectedChat(chatId, page: "page", limit: 20, completion: { (messagesArray) in
+            
+            self.messagesArray = messagesArray!
             completion(resultsReturned: true)
         })
     }

@@ -11,6 +11,7 @@
 		546E7582C9C71D89CDD1145A /* Pods_OraChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813DEBB836C34C9BCC41E904 /* Pods_OraChallenge.framework */; };
 		B4062DA31D73C7D200A8747F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4062DA21D73C7D200A8747F /* DataController.swift */; };
 		B4A73F7D1D75529F00813DF7 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A73F7C1D75529F00813DF7 /* SectionHeaderView.swift */; };
+		B4A73F811D76287400813DF7 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A73F801D76287400813DF7 /* MessagesViewController.swift */; };
 		B4AD2A081D6FFA9C00829E1C /* LoginRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */; };
 		B4C2A1981D70063A00466BB9 /* AccountNRegistrationCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2A1971D70063A00466BB9 /* AccountNRegistrationCells.swift */; };
 		B4C2A19E1D70067700466BB9 /* LoginCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2A19D1D70067700466BB9 /* LoginCells.swift */; };
@@ -56,6 +57,7 @@
 		AA95C183B4699BE6A3DB8D17 /* Pods-OraChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChallengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OraChallengeTests/Pods-OraChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		B4062DA21D73C7D200A8747F /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		B4A73F7C1D75529F00813DF7 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		B4A73F801D76287400813DF7 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegViewController.swift; sourceTree = "<group>"; };
 		B4C2A1971D70063A00466BB9 /* AccountNRegistrationCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountNRegistrationCells.swift; sourceTree = "<group>"; };
 		B4C2A19D1D70067700466BB9 /* LoginCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCells.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */,
 				B4E2D7E91D6FF10200E536C8 /* ChatsListViewController.swift */,
 				B4E2D7EB1D6FF10200E536C8 /* SecondViewController.swift */,
+				B4A73F801D76287400813DF7 /* MessagesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 			files = (
 				B4E10D211D7524EB002B4B5A /* ChatsListCell.swift in Sources */,
 				B4C2A1981D70063A00466BB9 /* AccountNRegistrationCells.swift in Sources */,
+				B4A73F811D76287400813DF7 /* MessagesViewController.swift in Sources */,
 				B4D3F78C1D73F2A000656CBD /* NetworkConnectController.swift in Sources */,
 				B4E10D231D7526AE002B4B5A /* Chat.swift in Sources */,
 				B4E2D7EC1D6FF10200E536C8 /* SecondViewController.swift in Sources */,
@@ -637,6 +641,12 @@
 			baseConfigurationReference = A5FC7FC5635BBF7DCBB3D04F /* Pods-OraChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/JSQMessagesViewController\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/JSQSystemSoundPlayer\"",
+				);
 				INFOPLIST_FILE = OraChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DanH.OraChallenge;
@@ -650,6 +660,7 @@
 			baseConfigurationReference = 31225BA83956293E3A6A0587 /* Pods-OraChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = OraChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DanH.OraChallenge;
