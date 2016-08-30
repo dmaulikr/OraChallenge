@@ -26,6 +26,8 @@ class ChatsListCell: UITableViewCell {
     var bottomMargin: CGFloat = 20
     var interLabelMargin: CGFloat = 5
     
+    var buttonYellowColor: UIColor!
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -42,7 +44,6 @@ class ChatsListCell: UITableViewCell {
         self.contentView.addSubview(authorTitleHeaderLabel)
     
         authorDateLabel.backgroundColor = UIColor.clearColor()
-        authorDateLabel.textColor = UIColor.yellowColor()
         authorDateLabel.textAlignment = .Left
         authorDateLabel.font = UIFont(name: "HelveticaNeue", size: 17.0)
         authorDateLabel.adjustsFontSizeToFitWidth = true
@@ -63,6 +64,8 @@ class ChatsListCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        authorDateLabel.textColor = buttonYellowColor
+
         authorTitleHeaderLabel.frame = CGRectMake(labelsXPos, topMargin, labelsWidth, labelsHeight)
         
         let authorDateLabelYPos = topMargin + labelsHeight + interLabelMargin

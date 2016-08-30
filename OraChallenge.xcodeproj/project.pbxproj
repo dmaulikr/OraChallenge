@@ -10,6 +10,7 @@
 		213122C269C251CAA7423A66 /* Pods_OraChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A1D24C0D55B09C6E3DF4C8 /* Pods_OraChallengeTests.framework */; };
 		546E7582C9C71D89CDD1145A /* Pods_OraChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813DEBB836C34C9BCC41E904 /* Pods_OraChallenge.framework */; };
 		B4062DA31D73C7D200A8747F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4062DA21D73C7D200A8747F /* DataController.swift */; };
+		B4A73F7D1D75529F00813DF7 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A73F7C1D75529F00813DF7 /* SectionHeaderView.swift */; };
 		B4AD2A081D6FFA9C00829E1C /* LoginRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */; };
 		B4C2A1981D70063A00466BB9 /* AccountNRegistrationCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2A1971D70063A00466BB9 /* AccountNRegistrationCells.swift */; };
 		B4C2A19E1D70067700466BB9 /* LoginCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2A19D1D70067700466BB9 /* LoginCells.swift */; };
@@ -54,6 +55,7 @@
 		A5FC7FC5635BBF7DCBB3D04F /* Pods-OraChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OraChallenge/Pods-OraChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		AA95C183B4699BE6A3DB8D17 /* Pods-OraChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChallengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OraChallengeTests/Pods-OraChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		B4062DA21D73C7D200A8747F /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		B4A73F7C1D75529F00813DF7 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegViewController.swift; sourceTree = "<group>"; };
 		B4C2A1971D70063A00466BB9 /* AccountNRegistrationCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountNRegistrationCells.swift; sourceTree = "<group>"; };
 		B4C2A19D1D70067700466BB9 /* LoginCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCells.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				B4C2A19D1D70067700466BB9 /* LoginCells.swift */,
 				B4C2A1971D70063A00466BB9 /* AccountNRegistrationCells.swift */,
 				B4E10D201D7524EB002B4B5A /* ChatsListCell.swift */,
+				B4A73F7C1D75529F00813DF7 /* SectionHeaderView.swift */,
 			);
 			name = "Views and Controls";
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				B4E2D7EC1D6FF10200E536C8 /* SecondViewController.swift in Sources */,
 				B4AD2A081D6FFA9C00829E1C /* LoginRegViewController.swift in Sources */,
 				B4E10D251D7526EA002B4B5A /* Message.swift in Sources */,
+				B4A73F7D1D75529F00813DF7 /* SectionHeaderView.swift in Sources */,
 				B4062DA31D73C7D200A8747F /* DataController.swift in Sources */,
 				B4E2D7E81D6FF10200E536C8 /* AppDelegate.swift in Sources */,
 				B4E2D7EA1D6FF10200E536C8 /* ChatsListViewController.swift in Sources */,

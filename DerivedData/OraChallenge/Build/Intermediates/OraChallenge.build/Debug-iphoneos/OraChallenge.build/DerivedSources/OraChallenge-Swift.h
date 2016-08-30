@@ -148,6 +148,7 @@ SWIFT_CLASS("_TtC12OraChallenge4Chat")
 @end
 
 @class UILabel;
+@class UIColor;
 
 SWIFT_CLASS("_TtC12OraChallenge13ChatsListCell")
 @interface ChatsListCell : UITableViewCell
@@ -161,6 +162,7 @@ SWIFT_CLASS("_TtC12OraChallenge13ChatsListCell")
 @property (nonatomic) CGFloat topMargin;
 @property (nonatomic) CGFloat bottomMargin;
 @property (nonatomic) CGFloat interLabelMargin;
+@property (nonatomic, strong) UIColor * _Null_unspecified buttonYellowColor;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
 - (void)layoutSubviews;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -169,7 +171,6 @@ SWIFT_CLASS("_TtC12OraChallenge13ChatsListCell")
 @class UITableView;
 @class UIButton;
 @class UISearchBar;
-@class UIColor;
 @class UIView;
 @class NSIndexPath;
 @class NSBundle;
@@ -236,6 +237,13 @@ SWIFT_CLASS("_TtC12OraChallenge20SecondViewController")
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC12OraChallenge17SectionHeaderView")
+@interface SectionHeaderView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 #pragma clang diagnostic pop

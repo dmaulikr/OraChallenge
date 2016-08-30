@@ -34,7 +34,7 @@ class LoginRegViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.registerClass(AccountNRegistrationCells.self, forCellReuseIdentifier: "accountNRegCellID")
         tableView.scrollEnabled = false
         tableView.allowsSelection = false
-        tableView.separatorStyle = .None
+        tableView.tableFooterView = UIView(frame: CGRectZero)
         tableView.delegate = self
         tableView.dataSource = self 
         
