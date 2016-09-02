@@ -381,7 +381,7 @@ class NetworkConnectController {
                             startingInt += 1
                         }
                         
-                        print("chatsArray.count: \(messagesArray.count)")
+                        print("messagesArray.count: \(messagesArray.count)")
                         completion(messagesArray: messagesArray)
                     }
                     

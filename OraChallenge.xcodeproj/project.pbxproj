@@ -10,6 +10,7 @@
 		213122C269C251CAA7423A66 /* Pods_OraChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A1D24C0D55B09C6E3DF4C8 /* Pods_OraChallengeTests.framework */; };
 		546E7582C9C71D89CDD1145A /* Pods_OraChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813DEBB836C34C9BCC41E904 /* Pods_OraChallenge.framework */; };
 		B4062DA31D73C7D200A8747F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4062DA21D73C7D200A8747F /* DataController.swift */; };
+		B47754ED1D777ABA003AB4F4 /* JSQMessagesViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47754EC1D777ABA003AB4F4 /* JSQMessagesViewController.framework */; };
 		B4A73F7D1D75529F00813DF7 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A73F7C1D75529F00813DF7 /* SectionHeaderView.swift */; };
 		B4A73F811D76287400813DF7 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A73F801D76287400813DF7 /* MessagesViewController.swift */; };
 		B4AD2A081D6FFA9C00829E1C /* LoginRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */; };
@@ -56,6 +57,7 @@
 		A5FC7FC5635BBF7DCBB3D04F /* Pods-OraChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OraChallenge/Pods-OraChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		AA95C183B4699BE6A3DB8D17 /* Pods-OraChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChallengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OraChallengeTests/Pods-OraChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		B4062DA21D73C7D200A8747F /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		B47754EC1D777ABA003AB4F4 /* JSQMessagesViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQMessagesViewController.framework; path = "DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework"; sourceTree = "<group>"; };
 		B4A73F7C1D75529F00813DF7 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		B4A73F801D76287400813DF7 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		B4AD2A071D6FFA9C00829E1C /* LoginRegViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRegViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B47754ED1D777ABA003AB4F4 /* JSQMessagesViewController.framework in Frameworks */,
 				546E7582C9C71D89CDD1145A /* Pods_OraChallenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +118,7 @@
 		759CB96124951F19331AF616 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B47754EC1D777ABA003AB4F4 /* JSQMessagesViewController.framework */,
 				813DEBB836C34C9BCC41E904 /* Pods_OraChallenge.framework */,
 				B7A1D24C0D55B09C6E3DF4C8 /* Pods_OraChallengeTests.framework */,
 				D3C80C325421043001E1E865 /* Pods_OraChallengeUITests.framework */,
@@ -646,6 +650,7 @@
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/JSQMessagesViewController\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/JSQSystemSoundPlayer\"",
+					"$(PROJECT_DIR)/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController",
 				);
 				INFOPLIST_FILE = OraChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -661,6 +666,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DerivedData/OraChallenge/Build/Products/Debug-iphoneos/JSQMessagesViewController",
+				);
 				INFOPLIST_FILE = OraChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DanH.OraChallenge;

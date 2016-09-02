@@ -6,27 +6,27 @@ provides-nominal:
 provides-member:
 - ["C12OraChallenge11AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationDidEnterBackground"
+- "applicationDidBecomeActive"
 - "applicationWillResignActive"
 - "applicationWillTerminate"
-- "applicationDidBecomeActive"
 - "applicationWillEnterForeground"
+- "applicationDidEnterBackground"
 - "window"
 - "application"
 depends-top-level:
-- "UIApplicationDelegate"
-- "UIWindow"
-- "NetworkConnectController"
-- "NSObject"
-- "AppDelegate"
+- "AnyObject"
 - !private "UINavigationController"
+- "UIApplication"
+- "AppDelegate"
+- "UIWindow"
+- "NSObject"
+- "NetworkConnectController"
+- "UIApplicationDelegate"
 - "Bool"
 - "DataController"
-- "AnyObject"
-- "UIResponder"
-- "UIApplication"
-- !private "LoginRegViewController"
 - !private "BooleanLiteralType"
+- "UIResponder"
+- !private "LoginRegViewController"
 depends-member:
 - ["Ps9AnyObject", "DataController"]
 - ["Ps9AnyObject", "NetworkConnectController"]

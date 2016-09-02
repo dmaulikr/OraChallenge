@@ -95,6 +95,7 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 @import UIKit;
 @import ObjectiveC;
 @import CoreGraphics;
+@import JSQMessagesViewController;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -174,10 +175,12 @@ SWIFT_CLASS("_TtC12OraChallenge13ChatsListCell")
 @class UIBarButtonItem;
 @class UIView;
 @class NSIndexPath;
+@class UIStoryboardSegue;
 @class NSBundle;
 
 SWIFT_CLASS("_TtC12OraChallenge23ChatsListViewController")
 @interface ChatsListViewController : UIViewController <UIBarPositioningDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate, UITableViewDelegate>
+@property (nonatomic, strong) UIWindow * _Nullable window;
 @property (nonatomic, strong) IBOutlet UITableView * _Null_unspecified chatsTableView;
 @property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified plusButton;
 @property (nonatomic, strong) IBOutlet UISearchBar * _Null_unspecified chatsSearchBar;
@@ -193,6 +196,7 @@ SWIFT_CLASS("_TtC12OraChallenge23ChatsListViewController")
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (void)searchBarCancelButtonClicked:(UISearchBar * _Nonnull)searchBar;
 - (void)searchBarSearchButtonClicked:(UISearchBar * _Nonnull)searchBar;
 - (void)enterNewChatNameAlert:(NSString * _Nonnull)title message:(NSString * _Nonnull)message;
@@ -238,14 +242,29 @@ SWIFT_CLASS("_TtC12OraChallenge22LoginRegViewController")
 
 SWIFT_CLASS("_TtC12OraChallenge7Message")
 @interface Message : NSObject
-@property (nonatomic, copy) NSString * _Null_unspecified chatName;
-@property (nonatomic, copy) NSString * _Null_unspecified chatCreatedDate;
-@property (nonatomic, strong) NSDictionary * _Null_unspecified userDataDict;
-@property (nonatomic, copy) NSString * _Null_unspecified userName;
-@property (nonatomic, copy) NSString * _Null_unspecified lastMessageText;
-@property (nonatomic, copy) NSString * _Null_unspecified lastMessageCreatedDate;
-@property (nonatomic, copy) NSString * _Null_unspecified lastMessageUserName;
-- (nonnull instancetype)initWithChatId:(NSInteger)chatId userId:(NSInteger)userId chatName:(NSString * _Nonnull)chatName chatCreationDate:(NSString * _Nonnull)chatCreationDate userName:(NSString * _Nonnull)userName lastMessageId:(NSInteger)lastMessageId lastMessageUserId:(NSInteger)lastMessageUserId lastMessageText:(NSString * _Nonnull)lastMessageText lastMessageCreatedDate:(NSString * _Nonnull)lastMessageCreatedDate lastMessageUserName:(NSString * _Nonnull)lastMessageUserName OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, copy) NSString * _Null_unspecified messageText;
+@property (nonatomic, copy) NSString * _Null_unspecified messageCreatedDate;
+@property (nonatomic, strong) NSDictionary * _Null_unspecified messageSenderDataDict;
+@property (nonatomic, copy) NSString * _Null_unspecified messageSenderUserName;
+- (nonnull instancetype)initWithMessageId:(NSInteger)messageId chatId:(NSInteger)chatId userId:(NSInteger)userId messageText:(NSString * _Nonnull)messageText messageCreatedDate:(NSString * _Nonnull)messageCreatedDate messageSenderUserName:(NSString * _Nonnull)messageSenderUserName OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UIImage;
+@class NSDate;
+
+SWIFT_CLASS("_TtC12OraChallenge22MessagesViewController")
+@interface MessagesViewController : JSQMessagesViewController
+@property (nonatomic, copy) NSArray<Message *> * _Nonnull messagesArray;
+@property (nonatomic, copy) NSDictionary<NSString *, UIImage *> * _Nonnull avatars;
+- (void)sendMessage:(NSString * _Null_unspecified)text sender:(NSString * _Null_unspecified)sender;
+- (void)tempSendMessage:(NSString * _Null_unspecified)text sender:(NSString * _Null_unspecified)sender;
+- (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)animated;
+- (void)receivedMessagePressed:(UIBarButtonItem * _Nonnull)sender;
+- (void)didPressSendButton:(UIButton * _Null_unspecified)button withMessageText:(NSString * _Null_unspecified)text sender:(NSString * _Null_unspecified)sender date:(NSDate * _Null_unspecified)date;
+- (void)didReceiveMemoryWarning;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

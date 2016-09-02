@@ -17,8 +17,8 @@ class MessagesViewController: JSQMessagesViewController  {
     
     var messagesArray = [Message]()
     var avatars = Dictionary<String, UIImage>()
-    var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleLightGrayColor())
-    var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleGreenColor())
+//    var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleLightGrayColor())
+//    var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleGreenColor())
     
     func sendMessage(text: String!, sender: String!) {
 
@@ -65,7 +65,6 @@ class MessagesViewController: JSQMessagesViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        messagesArray = (self.dataController?.messagesArray)!
         self.navigationItem.hidesBackButton = false
         automaticallyScrollsToMostRecentMessage = true
         
@@ -84,6 +83,7 @@ class MessagesViewController: JSQMessagesViewController  {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         collectionView!.collectionViewLayout.springinessEnabled = true
+        messagesArray = (self.dataController?.messagesArray)!
     }
     
     
@@ -100,92 +100,92 @@ class MessagesViewController: JSQMessagesViewController  {
     }
     
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
-        
-        return messagesArray[indexPath.item]
-    }
-    
-    func collectionView(collectionView: JSQMessagesCollectionView!, bubbleImageViewForItemAtIndexPath indexPath: NSIndexPath!) -> UIImageView! {
-        let message = messagesArray[indexPath.item]
-        
-//        if message.sender() == sender {
-//            return UIImageView(image: outgoingBubbleImageView.image, highlightedImage: outgoingBubbleImageView.highlightedImage)
+//    override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+//        
+//        return messagesArray[indexPath.item]
+//    }
+//    
+//    func collectionView(collectionView: JSQMessagesCollectionView!, bubbleImageViewForItemAtIndexPath indexPath: NSIndexPath!) -> UIImageView! {
+//        let message = messagesArray[indexPath.item]
+//        
+////        if message.sender() == sender {
+////            return UIImageView(image: outgoingBubbleImageView.image, highlightedImage: outgoingBubbleImageView.highlightedImage)
+////        }
+//        
+//        return UIImageView(image: incomingBubbleImageView.image, highlightedImage: incomingBubbleImageView.highlightedImage)
+//    }
+//    
+//    func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageViewForItemAtIndexPath indexPath: NSIndexPath!) -> UIImageView! {
+//        let message = messagesArray[indexPath.item]
+//        if let avatar = avatars[message.sender()] {
+//            return UIImageView(image: avatar)
+//        } else {
+//            setupAvatarImage(message.sender(), imageUrl: message.imageUrl(), incoming: true)
+//            return UIImageView(image:avatars[message.sender()])
 //        }
-        
-        return UIImageView(image: incomingBubbleImageView.image, highlightedImage: incomingBubbleImageView.highlightedImage)
-    }
-    
-    func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageViewForItemAtIndexPath indexPath: NSIndexPath!) -> UIImageView! {
-        let message = messagesArray[indexPath.item]
-        if let avatar = avatars[message.sender()] {
-            return UIImageView(image: avatar)
-        } else {
-            setupAvatarImage(message.sender(), imageUrl: message.imageUrl(), incoming: true)
-            return UIImageView(image:avatars[message.sender()])
-        }
-    }
-    
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messagesArray.count
-    }
-    
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
-        
-        let message = messagesArray[indexPath.item]
-        if message.sender() == sender {
-            cell.textView.textColor = UIColor.blackColor()
-        } else {
-            cell.textView.textColor = UIColor.whiteColor()
-        }
-        
-        let attributes : [String:AnyObject] = [NSForegroundColorAttributeName:cell.textView.textColor!, NSUnderlineStyleAttributeName: 1]
-        cell.textView.linkTextAttributes = attributes
-        
-        //        cell.textView.linkTextAttributes = [NSForegroundColorAttributeName: cell.textView.textColor,
-        //            NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle]
-        return cell
-    }
-    
-    
-    // View  usernames above bubbles
-    override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
-        let message = messagesArray[indexPath.item];
-        
-        // Sent by me, skip
-        if message.sender() == sender {
-            return nil;
-        }
-        
-        // Same as previous sender, skip
-        if indexPath.item > 0 {
-            let previousMessage = messagesArray[indexPath.item - 1];
-            if previousMessage.sender() == message.sender() {
-                return nil;
-            }
-        }
-        
-        return NSAttributedString(string:message.sender())
-    }
-    
-    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        let message = messagesArray[indexPath.item]
-        
-        // Sent by me, skip
-        if message.sender() == sender {
-            return CGFloat(0.0);
-        }
-        
-        // Same as previous sender, skip
-        if indexPath.item > 0 {
-            let previousMessage = messagesArray[indexPath.item - 1];
-            if previousMessage.sender() == message.sender() {
-                return CGFloat(0.0);
-            }
-        }
-        
-        return kJSQMessagesCollectionViewCellLabelHeightDefault
-    }
+//    }
+//    
+//    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return messagesArray.count
+//    }
+//    
+//    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+//        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
+//        
+//        let message = messagesArray[indexPath.item]
+////        if message.sender() == sender {
+////            cell.textView.textColor = UIColor.blackColor()
+////        } else {
+////            cell.textView.textColor = UIColor.whiteColor()
+////        }
+//        
+//        let attributes : [String:AnyObject] = [NSForegroundColorAttributeName:cell.textView.textColor!, NSUnderlineStyleAttributeName: 1]
+//        cell.textView.linkTextAttributes = attributes
+//        
+//        //        cell.textView.linkTextAttributes = [NSForegroundColorAttributeName: cell.textView.textColor,
+//        //            NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle]
+//        return cell
+//    }
+//    
+//    
+//    // View  usernames above bubbles
+//    override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
+//        let message = messagesArray[indexPath.item];
+//        
+//        // Sent by me, skip
+//        if message.sender() == sender {
+//            return nil;
+//        }
+//        
+//        // Same as previous sender, skip
+//        if indexPath.item > 0 {
+//            let previousMessage = messagesArray[indexPath.item - 1];
+//            if previousMessage.sender() == message.sender() {
+//                return nil;
+//            }
+//        }
+//        
+//        return NSAttributedString(string:message.sender())
+//    }
+//    
+//    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+//        let message = messagesArray[indexPath.item]
+//        
+//        // Sent by me, skip
+//        if message.sender() == sender {
+//            return CGFloat(0.0);
+//        }
+//        
+//        // Same as previous sender, skip
+//        if indexPath.item > 0 {
+//            let previousMessage = messagesArray[indexPath.item - 1];
+//            if previousMessage.sender() == message.sender() {
+//                return CGFloat(0.0);
+//            }
+//        }
+//        
+//        return kJSQMessagesCollectionViewCellLabelHeightDefault
+//    }
     
     
     override func didReceiveMemoryWarning() {

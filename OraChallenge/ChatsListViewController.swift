@@ -141,22 +141,37 @@ class ChatsListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let chatId = chatsArray[indexPath.section].chatId
+        print("chatId: \(chatId)")
         self.dataController!.getAllMessagesForSelectedChat(chatId, completion: { (resultsReturned) in
             
             dispatch_async(dispatch_get_main_queue()) {
 
-                if let navigationController = self.window?.rootViewController as? UINavigationController,
-                    let messagesVC = navigationController.viewControllers.last as? MessagesViewController {
+                self.performSegueWithIdentifier("showMessagesSegue", sender: nil)
 
-                    messagesVC.dataController = self.dataController!
-                    messagesVC.networkConnectController = self.networkConnectController
-                    
-                    self.performSegueWithIdentifier("showMessagesSegue", sender: nil)
-                }
+//                if let navigationController = self.window?.rootViewController as? UINavigationController,
+//                    let messagesVC = navigationController.viewControllers.last as? MessagesViewController {
+//
+//                    messagesVC.dataController = self.dataController!
+//                    messagesVC.networkConnectController = self.networkConnectController
+//                    
+//                }
             }
         })
     }
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "showMessagesSegue" {
+            
+            if let navigationController = self.window?.rootViewController as? UINavigationController,
+                let messagesVC = navigationController.viewControllers.last as? MessagesViewController {
+                
+                messagesVC.dataController = self.dataController!
+                messagesVC.networkConnectController = self.networkConnectController
+            }
+        }
+    }
     
     //MARK: Search Bar Delegate Methods
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
