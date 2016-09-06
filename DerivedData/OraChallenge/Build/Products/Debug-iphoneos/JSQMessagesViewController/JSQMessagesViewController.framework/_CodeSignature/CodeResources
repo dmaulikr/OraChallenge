@@ -546,27 +546,27 @@
 		</dict>
 		<key>JSQMessagesCollectionViewCellIncoming.nib</key>
 		<data>
-		c0LCWziqD4dS8I9R8dfzclHaFG4=
+		UgVP1dtqC4qrctXCoXDCHbgRmb8=
 		</data>
 		<key>JSQMessagesCollectionViewCellOutgoing.nib</key>
 		<data>
-		zb3aCHhTlm2yk2u+KwA6iuci7IA=
+		D+4TOhjZAezrsJiv0b2p4Gt3DrE=
 		</data>
 		<key>JSQMessagesLoadEarlierHeaderView.nib</key>
 		<data>
-		VlmVAHddSVoxoIEWduBpGQNsvL0=
+		WTj8lUevSrekJwLmO2lyZZ6A/W0=
 		</data>
 		<key>JSQMessagesToolbarContentView.nib</key>
 		<data>
-		NvNi+66kYIOXGMp+qweOyvfRHbc=
+		D5+3TgCq9KWB47Tm+rU8Js1ix0Y=
 		</data>
 		<key>JSQMessagesTypingIndicatorFooterView.nib</key>
 		<data>
-		JsmBgDlEx3RoWh5MywY+83ExzXw=
+		xfOedU2dYWvFriJlGyECUiMYIOU=
 		</data>
 		<key>JSQMessagesViewController.nib</key>
 		<data>
-		90mh1OOZqJBqqr6xxncwgv8ag+s=
+		YReppjP4xrjNK6mmrG+sun6PEjw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -1771,66 +1771,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			c0LCWziqD4dS8I9R8dfzclHaFG4=
+			UgVP1dtqC4qrctXCoXDCHbgRmb8=
 			</data>
 			<key>hash2</key>
 			<data>
-			xCoK3U3Tz5FL7qTk5ySmIRA6mrLFfmwsAFerC8LKkFc=
+			R40a3KNgHUnVGg/l9wa0soyY1CzF3E3Vok7BtnvvmLU=
 			</data>
 		</dict>
 		<key>JSQMessagesCollectionViewCellOutgoing.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zb3aCHhTlm2yk2u+KwA6iuci7IA=
+			D+4TOhjZAezrsJiv0b2p4Gt3DrE=
 			</data>
 			<key>hash2</key>
 			<data>
-			ASsA7r8GDHfGuId4qpNKIKs9Cik5PKBfykANRDS55jw=
+			WTBGfic5w0YSC8oHy9IOmdqFRtHc3jOhsO01QqZ2kIg=
 			</data>
 		</dict>
 		<key>JSQMessagesLoadEarlierHeaderView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VlmVAHddSVoxoIEWduBpGQNsvL0=
+			WTj8lUevSrekJwLmO2lyZZ6A/W0=
 			</data>
 			<key>hash2</key>
 			<data>
-			g/x67UmIF6qhdocuoJ1nj8vPKQOP0+GXev6hdjvxDnc=
+			Fv2M/HZ0C0gj2Y1C0IBCujJ9rquhQFaFrZ1v/N6wiKA=
 			</data>
 		</dict>
 		<key>JSQMessagesToolbarContentView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NvNi+66kYIOXGMp+qweOyvfRHbc=
+			D5+3TgCq9KWB47Tm+rU8Js1ix0Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			JsZHuEYoHszD6K0Nua5Vek7qEYA3yy6Sfazi0YN9j5o=
+			DrM5Lbpc9gWkNCxW32Q7igMuM0SqfPnVpGZiw4eYCjw=
 			</data>
 		</dict>
 		<key>JSQMessagesTypingIndicatorFooterView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JsmBgDlEx3RoWh5MywY+83ExzXw=
+			xfOedU2dYWvFriJlGyECUiMYIOU=
 			</data>
 			<key>hash2</key>
 			<data>
-			m5C9iP5DSDbTZ+R/MfLEjJMuLsc3/U/q9UVm1M8aQTo=
+			CRVoos3BcOhjX7QgSsIEtYli6cjPLvUIgJ52DCBjJlA=
 			</data>
 		</dict>
 		<key>JSQMessagesViewController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			90mh1OOZqJBqqr6xxncwgv8ag+s=
+			YReppjP4xrjNK6mmrG+sun6PEjw=
 			</data>
 			<key>hash2</key>
 			<data>
-			t5sL3r7W/RbjMIYEX7QfIOiYoX76NBZJvn9KzjMmhDU=
+			oldiVyQpk7fx4AiwW7w+tRMzJENWIP1XTxJV4OSPVvA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

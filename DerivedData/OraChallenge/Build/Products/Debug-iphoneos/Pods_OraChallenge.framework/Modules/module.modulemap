@@ -1,0 +1,6 @@
+framework module Pods_OraChallenge {
+  umbrella header "Pods-OraChallenge-umbrella.h"
+
+  export *
+  module * { export * }
+}

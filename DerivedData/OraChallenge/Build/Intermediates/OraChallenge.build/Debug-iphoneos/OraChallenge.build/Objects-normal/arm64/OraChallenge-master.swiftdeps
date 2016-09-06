@@ -1,10 +1,10 @@
 version: "Apple Swift version 2.2 (swiftlang-703.0.18.8 clang-703.0.31)"
-options: "09a8adddf1f322d0ea0e9043b8a7050b"
-build_time: [526096103, 244998000]
+options: "2bc171295113c3292a6410fad011dd9a"
+build_time: [526497526, 44395000]
 inputs:
   "/Users/DanH/Desktop/OraChallenge/OraChallenge/ChatsListCell.swift": [525850486, 0]
   "/Users/DanH/Desktop/OraChallenge/OraChallenge/AccountNRegistrationCells.swift": [525844402, 0]
-  "/Users/DanH/Desktop/OraChallenge/OraChallenge/MessagesViewController.swift": [526096103, 0]
+  "/Users/DanH/Desktop/OraChallenge/OraChallenge/MessagesViewController.swift": [526096142, 0]
   "/Users/DanH/Desktop/OraChallenge/NetworkConnectController.swift": [526096103, 0]
   "/Users/DanH/Desktop/OraChallenge/OraChallenge/Chat.swift": [525904287, 0]
   "/Users/DanH/Desktop/OraChallenge/OraChallenge/SecondViewController.swift": [525497858, 0]

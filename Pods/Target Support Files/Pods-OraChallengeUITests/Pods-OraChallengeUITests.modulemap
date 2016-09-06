@@ -1,0 +1,6 @@
+framework module Pods_OraChallengeUITests {
+  umbrella header "Pods-OraChallengeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
